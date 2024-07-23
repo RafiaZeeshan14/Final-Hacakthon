@@ -11,6 +11,10 @@ const Layout = ({ children }) => {
           <Banner />
           <div className=" grid grid-cols-[auto_1fr] ">
             {children[0]} 
+            <div className="flex flex-col">
+               {children[2]}
+              {children[3]} 
+            </div>
           </div>
         </main>
       </div>
