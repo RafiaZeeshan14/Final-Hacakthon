@@ -5,7 +5,7 @@ function CoursesCard() {
     <div className="pl-10 mt-4">
       <span className="flex justify-between px-2 mb-2">
         <h3 className="text-lg font-bold top-0 ">Enrolled Courses</h3>
-        <p className="text-[#88C343]">See all</p>
+        <p className="text-[#88C343] cursor-pointer transition-all duration-200 hover:underline">See all</p>
       </span>
       <div className="flex flex-row gap-8">
         <div className=" shadow-md rounded-xl border-2  border-[#88C343] flex py-8 pl-6 w-72"

@@ -1,7 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaRegCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaCalendarAlt, FaClipboard } from "react-icons/fa";
 
 const Sidebar = () => {
+  const menuItems = [
+    { icon: <FaTachometerAlt size={20} />, text: "Dashboard", link: "/dashboard" },
+    { icon: <FaDollarSign size={20} />, text: "Fee Payment", link: "/fee-payment" },
+    { icon: <FaPen size={20} />, text: "Registration", link: "/registration" },
+    { icon: <FaBook size={20} />, text: "Courses", link: "/courses" },
+    { icon: <FaCalendarAlt size={20} />, text: "Drop Semester", link: "/drop-semester" },
+    { icon: <FaClipboard size={20} />, text: "Result", link: "/result" },
+    { icon: <FaBell size={20} />, text: "Notice", link: "/notice" },
+    { icon: <FaRegCalendarAlt size={20} />, text: "Schedule", link: "/schedule" },
+  ];
+
   return (
     <div className="grid grid-cols-[auto_1fr] h-full p-1">
       <aside
@@ -20,47 +32,20 @@ const Sidebar = () => {
             <FaUserGraduate size={60} />
           </div>
         </div>
-        <nav className="flex flex-col space-y-8 mx-8">
-          <a href="#" className="relative flex items-center group text-white hover:text-gray-300">
-            <FaTachometerAlt size={20} />
-            <span className="ml-2 text-white hover:text-gray-400">Dashboard</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaDollarSign size={20} />
-            <span className="ml-2">Payment Info</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaPen size={20} />
-            <span className="ml-2">Registration</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaBook size={20} />
-            <span className="ml-2">Courses</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaCalendarAlt size={20} />
-            <span className="ml-2">Drop Semester</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaClipboard size={20} />
-            <span className="ml-2">Result</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaBell size={20} />
-            <span className="ml-2">Notice</span>
-          </a>
-          <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-            <FaRegCalendarAlt size={20} />
-            <span className="ml-2">Schedule</span>
-          </a>
-          
-          
-          <a href="#" className="relative flex  group text-gray-300 hover:text-white pt-10">
+        <nav className="flex flex-col space-y-10 mx-8 mt-3">
+          {menuItems.map((item, index) => (
+            <Link key={index} to={item.link} className="relative flex items-center group text-gray-300 hover:text-white">
+              {item.icon}
+              <span className="ml-2">{item.text}</span>
+            </Link>
+          ))}
+        </nav>
+        <div className="mt-auto mx-8 pt-10">
+          <Link to="/logout" className="relative flex items-center group text-gray-300 hover:text-white">
             <FaSignOutAlt size={20} />
             <span className="ml-2">Logout</span>
-          </a>
-          
-        </nav>
+          </Link>
+        </div>
       </aside>
     </div>
   );

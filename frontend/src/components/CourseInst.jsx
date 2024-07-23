@@ -18,7 +18,7 @@ const CourseInst = () => {
               key={index}
               src={src}
               alt="avatar"
-              className="inline-block relative ml-4 object-cover object-center !rounded-full w-16 h-16 border-[3px] border-[#88C343] shadow-md p-[1px]"
+              className="inline-block cursor-pointer relative ml-4 object-cover object-center !rounded-full w-16 h-16 border-[3px] border-[#88C343] shadow-md p-[1px]"
             />
           ))}
         </div>
