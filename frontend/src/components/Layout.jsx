@@ -9,6 +9,9 @@ const Layout = ({ children }) => {
         <main className="p-4">
           <Navbar />
           <Banner />
+          <div className=" grid grid-cols-[auto_1fr] ">
+            {children[0]} 
+          </div>
         </main>
       </div>
     </div>
