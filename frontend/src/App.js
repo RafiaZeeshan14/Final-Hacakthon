@@ -1,11 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './components/AppRoutes';
+
+
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div style={{fontFamily:"Poppins"}}>
+    <BrowserRouter> 
+      <AppRoutes/>
+    </BrowserRouter>
+  </div>
   );
 }
 
