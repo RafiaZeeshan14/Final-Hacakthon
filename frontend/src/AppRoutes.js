@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Signup } from './Registration/Signup'
-import { Login } from './Registration/Login'
-import Home from './Home'
+import { Signup } from './components/Registration/Signup'
+import { Login } from './components/Registration/Login'
+import Home from './components/DashBoard'
 
 const AppRoutes = () => {
   return (

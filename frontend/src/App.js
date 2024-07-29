@@ -1,7 +1,6 @@
 
 import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './components/AppRoutes';
-import Sidebar from './components/Sidebar';
+import AppRoutes from './AppRoutes';
 
 
 

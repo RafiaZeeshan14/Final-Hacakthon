@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Input from "../Common/Input";
-import Button from "../Common/Button";
+import Input from "../Common/Inputs/Input";
+import Button from "../Common/Button/Button";
 // import { handleLogin } from '../controller/handleApi';
 
 export function Login() {

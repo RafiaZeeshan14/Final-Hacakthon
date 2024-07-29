@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../Common/Button";
-import Input from "../Common/Input";
-import DropdownInput from "../Common/DropDownInput";
+import Input from "../Common/Inputs/Input";
+import DropdownInput from "../Common/Inputs/DropDownInput";
+import Button from "../Common/Button/Button";
+
 
 // import { handleRegister } from '../controller/handleApi';
 

@@ -19,7 +19,7 @@ const Navbar = () => {
             />
             <span className="flex flex-col px-2">
               <p className="font-bold text-md"> Student </p>
-              <p className="text-sm">Course Name</p>
+              <p className="text-[12px] text-gray-400">Course Name</p>
             </span>
           </div>
           <IoNotifications className="" />

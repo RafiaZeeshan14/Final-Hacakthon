@@ -1,7 +1,8 @@
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
-import Banner from "./Banner";
-const Layout = ({ children }) => {
+import Sidebar from "../Common/Sidebar/Sidebar";
+import Navbar from "../Common/Navbar/Navbar";
+import Banner from "../UserDashboard/Banner";
+
+const DashboardLayout = ({ children }) => {
   return (
     <div>
       <div className="grid grid-cols-[auto_1fr] ">
@@ -22,4 +23,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default DashboardLayout;
