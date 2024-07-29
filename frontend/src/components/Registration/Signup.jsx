@@ -29,7 +29,7 @@ export function Signup() {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Already have an account ?{" "}
-            <Link to={"/login"}
+            <Link to={"/"}
               title=""
               className="font-semibold text-[#88C343] transition-all duration-200 hover:underline"
             >
@@ -91,7 +91,7 @@ export function Signup() {
                 type="password"
               />
               <div>
-                <Button type="submit" text="Create Account" />
+              <Button type="button" text="Create Account" variant="primary" />
               </div>
             </div>
           </form>

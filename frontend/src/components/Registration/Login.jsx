@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../Common/Inputs/Input";
 import Button from "../Common/Button/Button";
+
 // import { handleLogin } from '../controller/handleApi';
 
 export function Login() {
@@ -37,7 +38,7 @@ export function Login() {
           </p>
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
-              {/* EMail-Address */}
+              {/* Email-Address */}
               <Input
                 label="Email Address"
                 placeholder="Email"
@@ -53,7 +54,7 @@ export function Login() {
                 showForgotPassword={true}
               />
               <div className="py-2">
-                <Button type="submit" text="Login" />
+              <Button type="button" text="Login" variant="primary" />
               </div>
             </div>
           </form>
