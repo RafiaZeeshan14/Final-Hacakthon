@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaRegCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaCalendarAlt, FaClipboard } from "react-icons/fa";
 
 const Sidebar = () => {
+  const navigate = useNavigate()
   const menuItems = [
     { icon: <FaTachometerAlt size={20} />, text: "Dashboard", link: "/dashboard" },
     { icon: <FaDollarSign size={20} />, text: "Fee Payment", link: "/fee-payment" },
@@ -13,6 +14,10 @@ const Sidebar = () => {
     { icon: <FaBell size={20} />, text: "Notice", link: "/notice" },
     { icon: <FaRegCalendarAlt size={20} />, text: "Schedule", link: "/schedule" },
   ];
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    navigate('/')
+  }
 
   return (
     <div className="grid grid-cols-[auto_1fr] h-full p-1">
@@ -41,10 +46,10 @@ const Sidebar = () => {
           ))}
         </nav>
         <div className="mt-auto mx-8 pt-10">
-          <Link to="/logout" className="relative flex items-center group text-gray-300 hover:text-white">
+          <button onClick={()=>handleLogout()} className="relative flex  group text-gray-300 hover:text-white pt-10">
             <FaSignOutAlt size={20} />
             <span className="ml-2">Logout</span>
-          </Link>
+          </button>
         </div>
       </aside>
     </div>
