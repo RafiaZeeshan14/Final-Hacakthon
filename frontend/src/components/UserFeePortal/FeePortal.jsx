@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Input from "../Common/Inputs/Input";
 import Table from "../Common/Table/Table";
 import UserFeeLayout from "../Layouts/UserFeeLayout";
+import { UserContext } from "../controller/UserContext";
 
 const FeePortal = () => {
-
+const { user } = useContext(UserContext)
 
   return (
     <UserFeeLayout>
@@ -22,6 +23,7 @@ const FeePortal = () => {
           height="55px"
           disabled={true}
           backgroundColor="#EBEBE4"
+          value={user?.name}
         />
         <Input
           label="Roll No"
@@ -32,6 +34,7 @@ const FeePortal = () => {
           height="55px"
           disabled={true}
           backgroundColor="#EBEBE4"
+          value={user?.rollNo}
         />
         <Input
           label="Course"
@@ -42,6 +45,7 @@ const FeePortal = () => {
           height="55px"
           disabled={true}
           backgroundColor="#EBEBE4"
+          value={user?.course}
         />
         <Input
           label="Batch"
@@ -52,6 +56,7 @@ const FeePortal = () => {
           height="55px"
           disabled={true}
           backgroundColor="#EBEBE4"
+          value={user?.batch}
         />
       </div>
       <div className="flex justify-center items-center mt-8">

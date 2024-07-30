@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../Common/Inputs/Input";
 import Button from "../Common/Button/Button";
+import { UserContext } from "../controller/UserContext";
+import { handleLogin } from "../controller/handleApi";
 
 // import { handleLogin } from '../controller/handleApi';
 
 export function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const { setUser } = useContext(UserContext)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   handleLogin(email, password, navigate)
-  // }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleLogin(email, password, navigate, setUser)
+    // console.log({ email, password });
+  };
   return (
     <section>
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14">
@@ -36,25 +40,29 @@ export function Login() {
               </a>
             </Link>
           </p>
-          <form action="#" method="POST" className="mt-8">
+          <form onSubmit={handleSubmit} className="mt-8">
             <div className="space-y-5">
               {/* Email-Address */}
               <Input
                 label="Email Address"
-                placeholder="Email"
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
               />
-                {/* Password */}
+              {/* Password */}
               <Input
                 label="Password"
                 placeholder="Password"
                 id="password"
                 type="password"
                 showForgotPassword={true}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <div className="py-2">
-              <Button type="button" text="Login" variant="primary" />
+                <Button type="submit" text="Login" variant="primary" />
               </div>
             </div>
           </form>

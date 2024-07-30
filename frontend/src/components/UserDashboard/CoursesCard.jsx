@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../controller/UserContext';
 
 function CoursesCard() {
+const { user } = useContext(UserContext)
   return (
     <div className="pl-10 mt-4">
       <span className="flex justify-between px-2 mb-2">
@@ -11,7 +13,7 @@ function CoursesCard() {
         <div className=" shadow-md rounded-xl border-2  border-[#88C343] flex py-8 pl-6 w-72"
           style={{ backgroundColor: 'rgba(40, 81, 146, 0.3)' }}>
           <div>
-            <h2 className="text-[18px] font-bold mb-2 text-[#285192]">Web & App Development</h2>
+            <h2 className="text-[18px] font-bold mb-2 text-[#285192]">{user?.course}</h2>
             <button className="bg-[#285192] text-white py-2 px-12 mt-2   rounded-full">View</button>
           </div>
           <img src="/Images/Laptop.svg" alt="Web Development" className="pr-4 object-cover " />

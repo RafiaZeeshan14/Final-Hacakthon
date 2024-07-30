@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoNotifications } from "react-icons/io5";
+import { UserContext } from "../../controller/UserContext";
 
 const Navbar = () => {
+const {user} = useContext(UserContext)
+
   return (
     <div>
       <div className="flex justify-between">
@@ -18,8 +21,8 @@ const Navbar = () => {
               class="inline-block relative object-cover object-center !rounded-full w-12 h-12 border-[3px] border-[#88C343] shadow-md p-[1px]"
             />
             <span className="flex flex-col px-2">
-              <p className="font-bold text-md"> Student </p>
-              <p className="text-[12px] text-gray-400">Course Name</p>
+              <p className="font-bold text-md"> {user?.name} </p>
+              <p className="text-[12px] text-gray-400">{user?.course}</p>
             </span>
           </div>
           <IoNotifications className="" />
