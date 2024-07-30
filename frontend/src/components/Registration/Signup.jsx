@@ -1,96 +1,112 @@
-import React, { useState } from "react";
+import React from "react";
+import { FaArrowRight } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { handleRegister } from '../controller/handleApi';
 import Input from "../Common/Inputs/Input";
 import DropdownInput from "../Common/Inputs/DropDownInput";
 import Button from "../Common/Button/Button";
-import { handleRegister } from "../controller/handleApi";
-
-
-// import { handleRegister } from '../controller/handleApi';
 
 export function Signup() {
-  const navigate = useNavigate()
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    rollNo: '',
-    course: "",
-    batch: "",
+ const navigate = useNavigate();
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required *"),
+    email: Yup.string().email("Invalid email address").required("Email is required *"),
+    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required *"),
+    rollNo: Yup.string().required("Roll No is required *"),
+    course: Yup.string().required("Please select a course *"),
+    batch: Yup.string().required("Please select a batch *"),
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (formData.course === "" || formData.batch === "") {
-      alert("Please select a course and batch");
-      return;
-    }
-    // console.log(formData)
-    handleRegister(formData, navigate)
-  }
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    // console.log(name, value)
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      password: '',
+      rollNo: '',
+      course: '',
+      batch: '',
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      handleRegister(values, navigate);
+    },
+  });
 
   return (
     <section>
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
           <div className="mb-2 flex justify-center">
-            <img src="/Images/logo-stdnt.png" className="h-20 " />
+            <img src="/Images/logo-stdnt.png" className="h-20" alt="Logo" />
           </div>
           <h2 className="text-center text-2xl font-bold py-2 leading-tight text-black">
             Sign up to create account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Already have an account ?{" "}
-            <Link to={"/"}
+            Already have an account?{" "}
+            <Link
+              to="/"
               title=""
               className="font-semibold text-[#88C343] transition-all duration-200 hover:underline"
             >
               Sign In
             </Link>
           </p>
-          <form onSubmit={handleSubmit} className="mt-8">
+          <form onSubmit={formik.handleSubmit} className="mt-8">
             <div className="space-y-5">
-              {/*   Full-Name   */}
+              {/* Full-Name */}
               <Input
-                name='name'
+                name="name"
                 label="Full Name"
                 placeholder="Full Name"
                 id="name"
                 type="text"
-                onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
               />
-              {/*   Email   */}
+              {formik.touched.name && formik.errors.name ? (
+                <span className="text-red-500 text-xs ">{formik.errors.name}</span>
+              ) : null}
+
+              {/* Email */}
               <Input
                 label="Email Address"
                 placeholder="Email"
-                name='email'
+                name="email"
                 id="email"
                 type="email"
-                onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
               />
-              {/*   Roll-No   */}
+              {formik.touched.email && formik.errors.email ? (
+                <span className="text-red-500 text-xs">{formik.errors.email}</span>
+              ) : null}
+
+              {/* Roll-No */}
               <Input
                 label="Roll No"
                 placeholder="WMA-12140"
-                name='rollNo'
+                name="rollNo"
                 id="rollNo"
                 type="text"
-                onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.rollNo}
               />
-              {/*   Courses   */}
+              {formik.touched.rollNo && formik.errors.rollNo ? (
+                <span className="text-red-500 text-xs">{formik.errors.rollNo}</span>
+              ) : null}
+
+              {/* Courses */}
               <DropdownInput
                 label="Select Course"
                 id="course"
-                name='course'
+                name="course"
                 options={[
                   "Select Course",
                   "Web Development",
@@ -99,13 +115,18 @@ export function Signup() {
                   "CCNA",
                   "AWS",
                 ]}
-                onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.course}
               />
+              {formik.touched.course && formik.errors.course ? (
+                <span className="text-red-500 text-xs">{formik.errors.course}</span>
+              ) : null}
 
-              {/*   Batch   */}
+              {/* Batch */}
               <DropdownInput
                 label="Select Batch"
-                name='batch'
+                name="batch"
                 id="batch"
                 options={[
                   "Select Batch",
@@ -114,17 +135,29 @@ export function Signup() {
                   "9",
                   "10",
                 ]}
-                onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.batch}
               />
-              {/*   Password   */}
+              {formik.touched.batch && formik.errors.batch ? (
+                <span className="text-red-500 text-xs">{formik.errors.batch}</span>
+              ) : null}
+
+              {/* Password */}
               <Input
                 label="Password"
                 placeholder="Password"
-                name='password'
+                name="password"
                 id="password"
                 type="password"
-                onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
               />
+              {formik.touched.password && formik.errors.password ? (
+                <span className="text-red-500 text-xs">{formik.errors.password}</span>
+              ) : null}
+
               <div>
                 <Button type="submit" text="Create Account" />
               </div>
