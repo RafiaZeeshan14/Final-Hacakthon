@@ -8,7 +8,7 @@ const { user } = useContext(UserContext)
       <img src="/Images/banner.png" alt="Banner" className="absolute w-full h-full object-cover" />
       <div className="relative grid grid-cols-2 h-full">
         <div className="flex flex-col  justify-center items-center p-3 z-10 ">
-          <p className="text-white text-sm mb-2">July 21, 2024</p>
+          <p className="text-white text-sm mb-2">{new Date().toString().slice(0,15)}</p>
           <h1 className="text-gray-300 text-3xl font-semibold">Welcome back, <span className='text-white font-bold'>{user?.name} !</span></h1>
           <p className="text-slate-200 mt-4 text-sm">Always stay updated in your student portal</p>
         </div>
