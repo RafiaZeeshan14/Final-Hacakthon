@@ -8,6 +8,7 @@ import {
   Image,
   Font,
 } from "@react-pdf/renderer";
+import { formatDate } from "../helperFunction/helperFunction";
 
 Font.register({
   family: 'Poppins',
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Voucher = () => {
+const Voucher = ({ data }) => {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -135,13 +136,13 @@ const Voucher = () => {
                 <Text>Date</Text>
               </View>
               <View style={[styles.col, styles.colQuarter]}>
-                <Text></Text>
+                <Text>{formatDate(data?.createdAt) || "--"}</Text>
               </View>
               <View style={[styles.col, styles.colQuarter]}>
                 <Text>Voucher No</Text>
               </View>
               <View style={[styles.col, styles.colQuarter]}>
-                <Text></Text>
+                <Text>{data?.voucherCode.slice(8, 17) || "--"}</Text>
               </View>
             </View>
 
@@ -150,13 +151,13 @@ const Voucher = () => {
                 <Text>Student ID</Text>
               </View>
               <View style={[styles.col, styles.colQuarter]}>
-                <Text></Text>
+                <Text> {data?.rollNo || "--"}</Text>
               </View>
               <View style={[styles.col, styles.colQuarter]}>
                 <Text>Batch</Text>
               </View>
               <View style={[styles.col, styles.colQuarter]}>
-                <Text></Text>
+                <Text>{data?.batch || "--"}</Text>
               </View>
             </View>
 
@@ -165,7 +166,7 @@ const Voucher = () => {
                 <Text>Student Name</Text>
               </View>
               <View style={[styles.col, styles.colHalf]}>
-                <Text></Text>
+                <Text>{data?.name || "--"}</Text>
               </View>
             </View>
 
@@ -174,7 +175,7 @@ const Voucher = () => {
                 <Text>Course</Text>
               </View>
               <View style={[styles.col, styles.colHalf]}>
-                <Text></Text>
+                <Text>{data?.course || "--"}</Text>
               </View>
             </View>
 
@@ -193,14 +194,15 @@ const Voucher = () => {
                 </View>
                 <View style={[styles.tableCol, { width: "30%" }]}>
                   <Text style={{ textAlign: "right" }}>
-                    
+                    Rs {data?.feeAmount || "--"}/-
                   </Text>
                 </View>
               </View>
               <View style={styles.tableRow}>
                 <View style={[styles.tableCol, { width: "70%" }]}>
                   <Text>
-                    Monthly Fees With Due Date 
+                    Monthly Fees With Due Date (
+                    {formatDate(data?.dueDate) || "--"})
                   </Text>
                 </View>
                 <View style={[styles.tableCol, { width: "30%" }]}>
