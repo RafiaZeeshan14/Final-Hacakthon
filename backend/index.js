@@ -2,6 +2,7 @@ require('dotenv').config({ path: '.env' })
 const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/User.js')
+const voucherRoutes = require('./routes/Voucher.js')
 const cors = require('cors')
 const dbconnect = require('./db.js')
 
@@ -12,9 +13,10 @@ app.use(cors())
 dbconnect()
 
 app.use("/user", userRoutes)
+app.use("/voucher", voucherRoutes)
 
 app.get("/test", (req, res) => {
-    res.send(`quiz app server is runnng on ${PORT}`)
+    res.send(`Fee Portal server is runnng on ${PORT}`)
 })
 
 app.listen(PORT, () => console.log(`Server is Running on: ${PORT} `))
