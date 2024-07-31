@@ -62,8 +62,58 @@ const fetchUser = async (setUser) => {
     }
 }
 
+const generateVoucher = async (user, setAllVoucher, allVoucher, setCurrentVoucher) => {
+    // console.log(user)
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("Token not available");
+        } else {
+            const res = await axios.post(`${baseURL}voucher/generate`,
+                user,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                }
+            );
+            setCurrentVoucher(res.data.data)
+            setAllVoucher([...allVoucher, res.data.data])
+            // console.log("🚀 ~ generateVoucher ~ res:", res.data.data);
+        }
+
+    } catch (error) {
+        console.error('Error generating voucher:', error.response.data.message);
+    }
+}
+
+const getVouchers = async (setAllVoucher) => {
+    // console.log(user)
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("Token not available");
+        } else {
+            const res = await axios.get(`${baseURL}voucher`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                }
+            );
+            setAllVoucher(res.data)
+            // console.log("🚀 ~ getVoucher ~ res:", res);
+        }
+
+    } catch (error) {
+        console.error('Error fetching voucher:', error.response.data.message);
+    }
+}
+
 export {
     handleRegister,
     handleLogin,
     fetchUser,
+    generateVoucher,
+    getVouchers
 }

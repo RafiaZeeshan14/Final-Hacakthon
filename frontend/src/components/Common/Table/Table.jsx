@@ -1,10 +1,9 @@
 import React from 'react'
+import { formatDate } from '../../helperFunction/helperFunction';
 
-const Table = () => {
-    const data = [
-        { id: 20462, date: "13/05/2024", amount: "$4.95", mode: "30May", status: "Paid" },
-        { id: 20462, date: "13/05/2024", amount: "$4.95", mode: "30May", status: "Pending" }
-      ];
+
+const Table = ({ vouchers }) => {
+    
   return (
     <div className="container pl-4 mx-auto mt-8">
         <h2 className="text-2xl font-semibold gradient-text">Summary</h2>
@@ -20,15 +19,15 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item, index) => (
+            {vouchers.map((item, index) => (
               <tr key={index} className="bg-gray-50 even:bg-gray-100">
-                <td className="py-2 text-center">#{item.id}</td>
-                <td className="py-2 text-center">{item.date}</td>
-                <td className="py-2 text-center">{item.amount}</td>
-                <td className="py-2 text-center">{item.mode}</td>
+                <td className="py-2 text-center">#{item.voucherCode.slice(8, 17)}</td>
+                <td className="py-2 text-center">{formatDate(item?.createdAt)}</td>
+                <td className="py-2 text-center">{item?.feeAmount}</td>
+                <td className="py-2 text-center">{formatDate(item?.dueDate)}</td>
                 <td className="py-2 text-center">
                   <span
-                    className={`px-2 py-1 rounded-full text-sm ${item.status === "Paid" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}
+                    className={`px-2 py-1 rounded-full text-sm ${item?.status === "Paid" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}
                   >
                     {item.status}
                   </span>
