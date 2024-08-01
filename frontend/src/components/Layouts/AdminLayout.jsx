@@ -9,7 +9,7 @@ const AdminLayout = ({ children }) => {
           <main className="p-4">
             <Navbar />
             <div className="grid grid-cols-[auto_1fr]">
-              {children[0]}
+              {children}
               <div className="flex flex-col">
               </div>
             </div>
