@@ -6,7 +6,7 @@ import Home from './components/DashBoard'
 import FeePortal from './components/UserFeePortal/FeePortal'
 import { fetchUser } from './components/controller/handleApi'
 import { UserContext } from './components/controller/UserContext'
-import Success from './components/Common/Success'
+import Success from './components/UserFeePortal/SuccessPage'
 import AdminDashboard from './components/AdminDashboard'
 import Dashboard from './components/DashBoard'
 
