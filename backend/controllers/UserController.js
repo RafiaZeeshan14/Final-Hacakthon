@@ -3,8 +3,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const admin = process.env.adminID
 
-// to Capital first letter
-
+// fn to Capital first letter
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
 // Create User
 const createUser = async (req, res) => {
@@ -12,6 +14,7 @@ const createUser = async (req, res) => {
     const { name, email, password, rollNo, course, batch } = req.body;
 
     // Capitalize the user's name
+    const capitalizedName = capitalizeFirstLetter(name);
 
     // To check existingEmail
     const existingEmail = await User.findOne({ email })
@@ -22,7 +25,7 @@ const createUser = async (req, res) => {
       const salt = await bcrypt.genSalt(10);
       const hashPassword = await bcrypt.hash(password, salt);
       const result = await User.create({
-        name,
+        name,capitalizedName,
         email,
         password: hashPassword,
         rollNo,
@@ -46,9 +49,13 @@ const getAllUsers = async (req, res) => {
     console.log('I am in get user request', req.user.id);
     if (req.user.id === admin) {
       console.log("yes")
-      const result = await User.find();
-      // console.log("🚀 ~ getUser ~ result:", result)
-      res.send({ status: 200, data: result });
+      const users = await User.find();
+     // Capitalize names for all users
+     const updatedUsers = users.map(user => ({
+      ...user.toObject(),
+      name: capitalizeFirstLetter(user.name)
+    }));
+    res.send({ status: 200, data: updatedUsers });
     } else {
       res.send({ status: 401, message: "You are not authorized" });
     }
@@ -65,7 +72,9 @@ const getUser = async (req, res) => {
     // console.log("🚀 ~ getUser ~ result:", result);
 
     if (result) {
-      res.send({ status: 200, data: result });
+       // Capitalize the user's name in the response
+       result.name = capitalizeFirstLetter(result.name);
+       res.send({ status: 200, data: result });
     } else {
       throw new Error('User not found')
     }
