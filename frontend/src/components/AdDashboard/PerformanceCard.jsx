@@ -1,6 +1,5 @@
 import React from 'react'
-//import ProgressCards from './ProgressCards';
-//import OverviewCards from './OverviewCards';
+import OverviewCards from './OverviewCards';
 
 const TITLE = "Performance";
 const TIME_PERIOD = "Month";
@@ -40,11 +39,11 @@ const PerformanceCard = () => {
       </div>
     </div>
   </div>
-  {/***<ProgressCards />
+  
   <div>
   <OverviewCards  />
   </div>
-   */}
+   
   </div>
   </>
   )
