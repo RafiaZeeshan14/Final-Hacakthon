@@ -9,7 +9,7 @@ const handleRegister = async (formData, navigate) => {
         );
         navigate('/')
     } catch (error) {
-        console.error('Registration error:', error);
+        console.log('Registration error:', error.response.data.message);
     }
 };
 
@@ -28,11 +28,11 @@ const handleLogin = async (email, password, navigate, setUser) => {
             await fetchUser(setUser);
             navigate('/dashboard');
         } else {
-            alert('no user found')
+            // alert('no user found')
             // navigate('/signup')
         }
     } catch (error) {
-        console.error('Login error:', error);
+        console.error(error.response);
     }
 };
 
@@ -83,7 +83,7 @@ const generateVoucher = async (user, setAllVoucher, allVoucher, setCurrentVouche
         }
 
     } catch (error) {
-        console.error('Error generating voucher:', error.response.data.message);
+        console.log('Error generating voucher:', error.response.data.message);
     }
 }
 
@@ -110,10 +110,52 @@ const getVouchers = async (setAllVoucher) => {
     }
 }
 
+const getPublicKey = async (setPublicKey) => {
+    try {
+        const res = await axios.get(`${baseURL}stripe`)
+        setPublicKey(res.data.key)
+
+        // console.log("🚀 ~ getPublicKey ~ res:", res.data.key)
+    } catch {
+    }
+
+}
+
+const makePayment = async (publicKey, loadStripe, voucher) => {
+    console.log("in make payment")
+    const stripe = await loadStripe(publicKey)
+
+    const res = await axios.post(`${baseURL}stripe/create-checkout-session`, {
+        voucher
+    })
+    console.log("🚀 ~ makePayment ~ res:", res.data.id)
+
+    const session = res.data.id
+    const result = stripe.redirectToCheckout({
+        sessionId: session
+    })
+    if (result.error) {
+        console.log(result.error)
+    }
+
+}
+
+const updateVoucherStatus = async (voucherId) => {
+    try {
+        await axios.put(`http://localhost:5000/voucher/${voucherId}`, { status: 'paid' });
+        console.log('Voucher status updated to paid');
+    } catch (error) {
+        console.error('Error updating voucher status:', error);
+    }
+};
+
 export {
     handleRegister,
     handleLogin,
     fetchUser,
     generateVoucher,
-    getVouchers
+    getVouchers,
+    getPublicKey,
+    makePayment,
+    updateVoucherStatus,
 }

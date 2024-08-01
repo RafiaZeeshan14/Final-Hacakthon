@@ -2,6 +2,7 @@ import React from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFVoucher from "../../UserFeePortal/PdfVoucher";
 import { formatDate } from "../../helperFunction/helperFunction";
+import PayOnline from "../Button/PayOnline";
 
 const Table = ({ vouchers }) => {
   const renderFallbackRow = () => (
@@ -75,10 +76,7 @@ const Table = ({ vouchers }) => {
                         </button>
                       )}
                     </PDFDownloadLink>
-                    <button className="px-2 py-2 bg-blue-100 text-blue-700 border border-blue-300 rounded">
-                      Pay Online
-                    </button>
-                    {/* <PayOnline voucher={item} /> */}
+                    <PayOnline voucher={item}/>
                   </td>
                 </tr>
               ))}
