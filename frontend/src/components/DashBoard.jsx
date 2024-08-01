@@ -1,25 +1,25 @@
 import React, { useContext } from 'react'
-import Layout from './Layouts/DashboardLayout'
 import ProgressCard from './UserDashboard/ProgressCard'
 import CoursesCard from './UserDashboard/CoursesCard'
 import CourseInst from './UserDashboard/CourseInst'
 import Remainders from './UserDashboard/Remainders'
 import { UserContext } from './controller/UserContext'
+import DashboardLayout from './Layouts/DashboardLayout'
 
-const Home = () => {
+const Dashboard = () => {
   const { user } = useContext(UserContext)
   return (
     <div>
       {user &&
-        <Layout>
+        <DashboardLayout>
           <ProgressCard />
           <CoursesCard />
           <CourseInst />
           <Remainders />
-        </Layout>
+        </DashboardLayout>
       }
     </div>
   )
 }
 
-export default Home
+export default Dashboard

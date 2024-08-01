@@ -7,6 +7,8 @@ import FeePortal from './components/UserFeePortal/FeePortal'
 import { fetchUser } from './components/controller/handleApi'
 import { UserContext } from './components/controller/UserContext'
 import Success from './components/Common/Success'
+import AdminDashboard from './components/AdminDashboard'
+import Dashboard from './components/DashBoard'
 
 
 const AppRoutes = () => {
@@ -23,9 +25,10 @@ const AppRoutes = () => {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/dashboard' element={<Home />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/fee-payment' element={<FeePortal />} />
           <Route path='/success' element={<Success />} />
+          <Route path='/adminscreen' element={<AdminDashboard />} />
         </Routes>
       </UserContext.Provider>
     </div>
