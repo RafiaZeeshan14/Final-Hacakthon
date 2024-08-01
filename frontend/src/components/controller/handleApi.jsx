@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 const baseURL = "http://localhost:5000/"
 
 const handleRegister = async (formData, navigate) => {
@@ -9,6 +10,7 @@ const handleRegister = async (formData, navigate) => {
         );
         navigate('/')
     } catch (error) {
+        toast.error(error.response.data.message)
         console.log('Registration error:', error.response.data.message);
     }
 };
@@ -30,8 +32,10 @@ const handleLogin = async (email, password, navigate, setUser) => {
         } else {
             // alert('no user found')
             // navigate('/signup')
+            toast.error('no user found')
         }
     } catch (error) {
+        
         console.error(error.response);
     }
 };
@@ -40,7 +44,7 @@ const fetchUser = async (setUser) => {
     const token = localStorage.getItem('token');
     // console.log("🚀 ~ useEffect ~ token:", token)
     if (!token) {
-        alert("token not available")
+        toast.error("token not available")
         // console.log("token not available")
         // navigate('/');
     }
@@ -67,7 +71,7 @@ const generateVoucher = async (user, setAllVoucher, allVoucher, setCurrentVouche
     try {
         const token = localStorage.getItem('token');
         if (!token) {
-            alert("Token not available");
+            toast.error("token not available")
         } else {
             const res = await axios.post(`${baseURL}voucher/generate`,
                 user,
@@ -79,10 +83,12 @@ const generateVoucher = async (user, setAllVoucher, allVoucher, setCurrentVouche
             );
             setCurrentVoucher(res.data.data)
             setAllVoucher([...allVoucher, res.data.data])
+            toast.success("Voucher generated successfully!");
             // console.log("🚀 ~ generateVoucher ~ res:", res.data.data);
         }
 
     } catch (error) {
+        toast.error(error.response.data.message);
         console.log('Error generating voucher:', error.response.data.message);
     }
 }
@@ -106,6 +112,7 @@ const getVouchers = async (setAllVoucher) => {
         }
 
     } catch (error) {
+        toast.error(error.response.data.message)
         console.error('Error fetching voucher:', error.response.data.message);
     }
 }
