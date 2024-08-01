@@ -5,6 +5,6 @@ const { auth } = require('../middleware/auth.js')
 
 router.post('/generate', auth, generateVoucher);
 router.get('/', auth, getVouchers);
-// router.put('/:id',  updateVoucher)
+router.put('/:id',  updateVoucher)
 
 module.exports = router;
