@@ -20,7 +20,7 @@ const OverviewCards = () => {
     <div className="p-4 mt-4">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-bold">Daily Overview</h1>
-        <button className="bg-[#6181B3] text-[#15134B] font-medium  py-2 px-12 rounded-full">View</button>
+        <button className="bg-[#6181B3] text-[#15134B] font-medium  py-2 px-12 rounded-full mr-4">View</button>
       </div>
       <div className="flex space-x-4">
         {cardsData.map((card, index) => (
