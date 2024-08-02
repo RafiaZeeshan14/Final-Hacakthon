@@ -11,6 +11,7 @@ const AdminLayout = ({ children }) => {
             <div className="grid grid-cols-[auto_1fr]">
               {children}
               <div className="flex flex-col">
+                {children[3]}
               </div>
             </div>
           </main>
