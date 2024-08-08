@@ -1,11 +1,11 @@
 import Navbar from "../Common/Navbar/Navbar"
-import Sidebar from "../Common/Sidebar/Sidebar"
+import AdminSidebar from "../Common/Sidebar/AdminSidebar"
 
 const AdminLayout = ({ children }) => {
     return (
       <div>
         <div className='grid grid-cols-[auto_1fr] '>
-          <Sidebar/>
+          <AdminSidebar/>
           <main className="p-4">
             <Navbar />
             <div className="grid grid-cols-[auto_1fr]">
