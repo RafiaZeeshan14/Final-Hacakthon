@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { updateVoucherStatus } from '../controller/handleApi';
-import '../../App.css'
+import { updateVoucherStatus } from '../../controller/handleApi';
+import '../../../App.css'
 const SuccessPage = () => {
     const { search } = useLocation();
     const queryParams = new URLSearchParams(search);

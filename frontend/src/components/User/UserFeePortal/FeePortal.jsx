@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import Input from "../Common/Inputs/Input";
-import Table from "../Common/Table/Table";
-import UserFeeLayout from "../Layouts/UserFeeLayout";
-import { UserContext } from "../controller/UserContext";
-import { getVouchers, generateVoucher } from '../controller/handleApi'
+import Input from "../../Common/Inputs/Input";
+import Table from "../../Common/Table/Table";
+import UserFeeLayout from "../../Layouts/UserFeeLayout";
+import { UserContext } from "../../controller/UserContext";
+import { getVouchers, generateVoucher } from '../../controller/handleApi'
 
 const FeePortal = () => {
   const { user } = useContext(UserContext)

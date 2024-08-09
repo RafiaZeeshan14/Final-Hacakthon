@@ -3,13 +3,14 @@ import { Route, Routes } from 'react-router-dom'
 import { Signup } from './components/Registration/Signup'
 import { Login } from './components/Registration/Login'
 import Home from './components/DashBoard'
-import FeePortal from './components/UserFeePortal/FeePortal'
+import FeePortal from './components/User/UserFeePortal/FeePortal'
 import { fetchUser } from './components/controller/handleApi'
 import { UserContext } from './components/controller/UserContext'
-import Success from './components/UserFeePortal/SuccessPage'
+import Success from './components/User/UserFeePortal/SuccessPage'
 import AdminDashboard from './components/AdminDashboard'
 import Dashboard from './components/DashBoard'
 import AdminFeeTable from './components/AdminFeePortal/AdminFeeTable'
+import RegisterForm from './components/User/RegisterForm/RegisterForm'
 
 
 const AppRoutes = () => {
@@ -31,6 +32,7 @@ const AppRoutes = () => {
           <Route path='/success' element={<Success />} />
           <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route path='/adminfeesection' element={<AdminFeeTable />} />
+          <Route path='/registration' element={<RegisterForm />} />
         </Routes>
       </UserContext.Provider>
     </div>
