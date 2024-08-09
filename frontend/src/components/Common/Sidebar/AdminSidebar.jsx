@@ -60,7 +60,7 @@ const AdminSidebar = () => {
                         <FaBell size={20} />
                         <span className="ml-2">Notice</span>
                     </a>
-                    <Link to={'#'} className="relative flex items-center group text-gray-300 hover:text-white">
+                    <Link to={'/editprofile'} className="relative flex items-center group text-gray-300 hover:text-white">
                         <FaUserEdit size={20} />
                         <span className="ml-2">Edit Profile</span>
                     </Link>

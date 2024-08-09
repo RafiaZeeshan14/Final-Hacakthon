@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../Common/Navbar/Navbar';
 import AdminSidebar from '../Common/Sidebar/AdminSidebar';
 
-const AdminFeelayout = ({ children }) => {
+const AdminInfolayout = ({ children }) => {
   return (
     <div className="grid grid-cols-[auto_1fr]">
             <AdminSidebar />
@@ -16,4 +16,4 @@ const AdminFeelayout = ({ children }) => {
   )
 }
 
-export default AdminFeelayout 
+export default AdminInfolayout 

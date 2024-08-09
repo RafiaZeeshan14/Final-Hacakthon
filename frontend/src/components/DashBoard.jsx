@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import ProgressCard from './UserDashboard/ProgressCard'
-import CoursesCard from './UserDashboard/CoursesCard'
+import ProgressCard from './User/UserDashboard/ProgressCard'
+import CoursesCard from './User/UserDashboard/CoursesCard'
 import CourseInst from './User/UserDashboard/CourseInst'
-import Remainders from './UserDashboard/Remainders'
+import Remainders from './User/UserDashboard/Remainders'
 import { UserContext } from './controller/UserContext'
 import DashboardLayout from './Layouts/DashboardLayout'
 

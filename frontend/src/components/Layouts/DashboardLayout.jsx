@@ -1,6 +1,7 @@
 import Sidebar from "../Common/Sidebar/Sidebar";
 import Navbar from "../Common/Navbar/Navbar";
-import Banner from "../UserDashboard/Banner";
+import Banner from '../User/UserDashboard/Banner'
+
 
 const DashboardLayout = ({ children }) => {
   return (

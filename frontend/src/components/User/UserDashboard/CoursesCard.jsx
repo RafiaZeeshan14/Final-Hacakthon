@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../controller/UserContext';
+import { UserContext } from '../../controller/UserContext';  
 
 function CoursesCard() {
 const { user } = useContext(UserContext)
