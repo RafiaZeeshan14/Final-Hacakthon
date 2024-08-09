@@ -35,7 +35,7 @@ const handleLogin = async (email, password, navigate, setUser) => {
             localStorage.setItem('token', token);
             if (pref === "admin") {
                 await fetchUser(setUser);
-                navigate('/adminscreen');
+                navigate('/admin-dashboard');
             } else {
                 await fetchUser(setUser);
                 navigate('/dashboard');
