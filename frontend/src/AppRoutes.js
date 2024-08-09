@@ -15,6 +15,8 @@ import Instructor from './components/User/UserDashboard/Instructor'
 import EditProfile from './components/AdDashboard/EditProfile'
 import Courses from './components/User/Courses/Courses'
 import NotificationPage from './components/AdDashboard/NotificationPage'
+import StudentDetails from './components/AdDashboard/StudentDetail'
+import AllDetails from './components/AdDashboard/AllDetails'
 
 
 
@@ -42,7 +44,8 @@ const AppRoutes = () => {
           <Route path='/courses' element={<Courses />} />
           <Route path='/editprofile' element={<EditProfile />} />
           <Route path='/noticepage' element={<NotificationPage />} />
-
+          <Route path='/studentdetails' element={<StudentDetails />} />
+          <Route path='/alldetails' element={<AllDetails />} />
         </Routes>
       </UserContext.Provider>
     </div>
