@@ -44,18 +44,15 @@ const AdminSidebar = () => {
                         <FaPen size={20} />
                         <span className="ml-2">Student Detail</span>
                     </Link>
-                    <Link to={'#'} className="relative flex items-center group text-gray-300 hover:text-white">
+                    <Link to={'/ongoing-courses'} className="relative flex items-center group text-gray-300 hover:text-white">
                         <FaBook size={20} />
-                        <span className="ml-2">Top Courses</span>
+                        <span className="ml-2">All Courses</span>
                     </Link>
                     <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
                         <FaCalendarAlt size={20} />
                         <span className="ml-2">All Semester</span>
                     </a>
-                    <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaClipboard size={20} />
-                        <span className="ml-2">Result</span>
-                    </a>
+                    
                     <a href="/noticepage" className="relative flex items-center group text-gray-300 hover:text-white">
                         <FaBell size={20} />
                         <span className="ml-2">Notice</span>
