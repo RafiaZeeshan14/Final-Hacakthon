@@ -1,24 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { team } from "./Instructor";
 
 const CourseInst = () => {
-  const images = [
-    "https://docs.material-tailwind.com/img/face-2.jpg",
-    "https://docs.material-tailwind.com/img/face-2.jpg",
-    "https://docs.material-tailwind.com/img/face-2.jpg",
-    
-  ];
+  const topInstructors = team.slice(0, 3); 
 
   return (
     <div>
-      <div className="pl-10">
-        <h3 className="text-lg font-bold top-0 pl-3">Course Instructor</h3>
-        <div className="py-4">
-          {images.map((src, index) => (
+      <div className="mx-auto">
+        <span className="flex justify-between px-12 mb-2">
+          <h3 className="text-lg font-bold top-0 ">Course Instructor</h3>
+          <Link to={'/instructor'} className="text-[#88C343]">See all</Link>
+        </span>
+        <div className="py-4 p-10">
+          {topInstructors.map((instructor, index) => (
             <img
               key={index}
-              src={src}
-              alt="avatar"
-              className="inline-block cursor-pointer relative ml-4 object-cover object-center !rounded-full w-16 h-16 border-[3px] border-[#88C343] shadow-md p-[1px]"
+              src={instructor.avatar}
+              alt={instructor.name}
+              className="inline-block relative ml-4 object-cover object-center !rounded-full w-16 h-16 border-[3px] border-[#88C343] shadow-md p-[1px]"
             />
           ))}
         </div>

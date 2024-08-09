@@ -11,6 +11,7 @@ import AdminDashboard from './components/AdminDashboard'
 import Dashboard from './components/DashBoard'
 import AdminFeeTable from './components/AdminFeePortal/AdminFeeTable'
 import RegisterForm from './components/User/RegisterForm/RegisterForm'
+import Instructor from './components/User/UserDashboard/Instructor'
 
 
 const AppRoutes = () => {
@@ -33,6 +34,7 @@ const AppRoutes = () => {
           <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route path='/adminfeesection' element={<AdminFeeTable />} />
           <Route path='/registration' element={<RegisterForm />} />
+          <Route path='/instructor' element={<Instructor />} />
         </Routes>
       </UserContext.Provider>
     </div>

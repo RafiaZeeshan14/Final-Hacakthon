@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { IoNotifications } from "react-icons/io5";
+import { MdNotificationsActive } from "react-icons/md";
 import { UserContext } from "../../controller/UserContext";
+import Avatar from "../Avatar/Avatar";
 
 const Navbar = () => {
 const {user} = useContext(UserContext)
@@ -14,18 +15,14 @@ const {user} = useContext(UserContext)
           style={{ width: "120px", height: "70px" }}
         />
         <div className=" flex pt-4 justify-between">
-          <div className="mr-10 flex">
-            <img
-              src="https://docs.material-tailwind.com/img/face-2.jpg"
-              alt="avatar"
-              class="inline-block relative object-cover object-center !rounded-full w-12 h-12 border-[3px] border-[#88C343] shadow-md p-[1px]"
-            />
+          <div className="mr-10 flex items-center">
+            <Avatar name={user?.name}/>
             <span className="flex flex-col px-2">
               <p className="font-bold text-md"> {user?.name} </p>
               <p className="text-[12px] text-gray-400">{user?.course}</p>
             </span>
           </div>
-          <IoNotifications className="" />
+          <MdNotificationsActive className="h-12 w-6 " />
         </div>
       </div>
     </div>
