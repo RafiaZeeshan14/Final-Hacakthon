@@ -35,7 +35,7 @@ const handleLogin = async (email, password, navigate, setUser) => {
             localStorage.setItem('token', token);
             if (pref === "admin") {
                 await fetchUser(setUser);
-                navigate('/admin-dashboard');
+                navigate('/Admin-dashboard');
             } else {
                 await fetchUser(setUser);
                 navigate('/dashboard');
@@ -131,24 +131,24 @@ const getVouchers = async (setAllVoucher) => {
 }
 
 
-const downloadVoucher = async(data) =>{
-console.log("from handle api",data)
+const downloadVoucher = async (data) => {
+    console.log("from handle api", data)
     try {
-      const response = await axios.post(`${baseURL}generate-voucher`, {
-        data
-        // other data
-      }, { responseType: 'blob' });
+        const response = await axios.post(`${baseURL}generate-voucher`, {
+            data
+            // other data
+        }, { responseType: 'blob' });
 
-      const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'voucher.pdf');
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
+        const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'voucher.pdf');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
 
     } catch (error) {
-      console.log("🚀 ~ downloadVoucher ~ error:", error)
+        console.log("🚀 ~ downloadVoucher ~ error:", error)
     };
 
 
@@ -177,13 +177,38 @@ const makePayment = async (voucher) => {
 
 const updateVoucherStatus = async (voucherId) => {
     try {
-        await axios.put(`http://localhost:5000/voucher/${voucherId}`, { status: 'paid' }, {paymentMode : "Online"});
+        await axios.put(`http://localhost:5000/voucher/${voucherId}`, { status: 'paid' }, { paymentMode: "Online" });
         console.log('Voucher status updated to paid');
     } catch (error) {
         console.error('Error updating voucher status:', error);
     }
 };
 
+const editUser = async (formData, user) => {
+    // console.log("🚀 ~ editUser ~ formData,user:", formData, user)
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("Token not available");
+        } else {
+            const res = await axios.put(
+                `${baseURL}user/${user}`,
+                formData, // Include the formData in the request body
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                }
+            );
+            // console.log("🚀 ~ editUser ~ res:", res.data);
+            // Handle success (e.g., update UI, show a success message)
+        }
+    } catch (error) {
+        console.error('Error updating user:', error.response?.data?.message || error.message);
+        // Handle error (e.g., show an error message)
+    }
+
+}
 
 export {
     handleRegister,
@@ -194,4 +219,5 @@ export {
     makePayment,
     updateVoucherStatus,
     downloadVoucher,
+    editUser
 }

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../controller/UserContext';
-
+import { UserContext } from '../../controller/UserContext';  
 const Banner = () => {
 const { user } = useContext(UserContext)
   return (
