@@ -1,13 +1,20 @@
 const { Router } = require("express");
-const { createUser, getUser, login , deleteAllUser , getAllUsers } = require("../controllers/UserController");
+const { createUser, getUser, login } = require("../controllers/UserController");
+const { getAllUsers, deleteUser, getUsersByCourse } = require("../controllers/AdminController");
 const { auth } = require("../middleware/auth");
 
 const router = Router();
-router.get('/allUsers', auth , getAllUsers) // for admin
-router.get("/", auth , getUser) // for user and admin both
-router.post("/", createUser); // for user and admin both
-router.post("/login", login); // for user and admin both
-router.delete('/',auth, deleteAllUser) // for admin
-// router.delete('/:id' , deleteById) // for admin
+router.post("/", createUser); 
+router.post("/login", login);
 // router.put('/:id' , updateUser) // for user and admin both
+
+// for user
+router.get("/", auth , getUser) 
+ 
+ // for admin
+router.get('/allUsers', auth , getAllUsers) 
+router.get('/userByCourse', auth, getUsersByCourse)
+
+// router.delete('/',auth, deleteUser) 
+// router.delete('/:id' , deleteById) // for admin
 module.exports = router

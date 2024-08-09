@@ -1,8 +1,7 @@
 import React from "react";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import PDFVoucher from "../../UserFeePortal/PdfVoucher";
 import { formatDate } from "../../helperFunction/helperFunction";
 import PayOnline from "../Button/PayOnline";
+import { downloadVoucher } from '../../controller/handleApi';
 
 const Table = ({ vouchers }) => {
   const renderFallbackRow = () => (
@@ -62,22 +61,17 @@ const Table = ({ vouchers }) => {
                       {item.status || "--"}
                     </span>
                   </td>
-                  <td className="py-2 text-center text-sm space-x-2">
-                    <PDFDownloadLink
-                      document={<PDFVoucher data={item} />}
-                      fileName={`voucher-${item.voucherCode}.pdf`}
+                  <td className="py-2 text-center text-sm">
+                  <div className="flex justify-center space-x-2 ">
+                    <button
+                      className="px-2 py-2 bg-pink-100 text-pink-700 border border-pink-300 rounded"
+                      onClick={()=>downloadVoucher(item)}
                     >
-                      {({ loading }) => (
-                        <button
-                          className="px-2 py-2 bg-pink-100 text-pink-700 border border-pink-300 rounded"
-                          disabled={loading}
-                        >
-                          {"Download PDF"}
-                        </button>
-                      )}
-                    </PDFDownloadLink>
-                    <PayOnline voucher={item}/>
-                  </td>
+                      {'Download PDF'}
+                    </button>
+                    <PayOnline voucher={item} />
+                  </div>
+                </td>
                 </tr>
               ))}
         </tbody>

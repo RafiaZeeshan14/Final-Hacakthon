@@ -4,17 +4,13 @@ import { getPublicKey, makePayment } from '../../controller/handleApi';
 import Spinner from '../Spinner/Spinner';
 
 const PayOnline = ({ voucher }) => {
-  const [publicKey, setPublicKey] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    getPublicKey(setPublicKey);
-  }, []);
-
+  
   const handleClick = async () => {
     setLoading(true); // Show spinner
     try {
-      await makePayment(publicKey, loadStripe, voucher);
+      await makePayment(voucher);
     } catch (error) {
       console.error('Payment failed:', error);
     } finally {

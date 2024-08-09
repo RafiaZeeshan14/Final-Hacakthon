@@ -1,42 +1,51 @@
+import { loadStripe } from '@stripe/stripe-js';
 import axios from "axios";
 import { toast } from "react-toastify";
 const baseURL = "http://localhost:5000/"
 
+const stripePublicKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY
+
 const handleRegister = async (formData, navigate) => {
-    // console.log("...in handle api", formData)
+    console.log("...in handle api", formData)
     try {
         await axios.post(`${baseURL}user`,
             formData
         );
         navigate('/')
-    } catch (error) {
-        toast.error(error.response.data.message)
-        console.log('Registration error:', error.response.data.message);
+    } catch (err) {
+        toast.error(err.response.data.message)
+
     }
 };
 
 const handleLogin = async (email, password, navigate, setUser) => {
-    // console.log(email, password)
+    console.log(email, password)
     try {
         const res = await axios.post(`${baseURL}user/login`, {
             email,
             password,
         });
+        // console.log("🚀 ~ handleLogin ~ res:", res.data.token)
+        // console.log("🚀 ~ handleLogin ~ res:", res.data.data)
         // console.log("🚀 ~ handleLogin ~ res:", res.data)
         const token = res.data.token
-        // console.log("🚀 ~ handleLogin ~ token:", token)
+        const pref = res.data.data
+        console.log("🚀 ~ handleLogin ~ pref:", pref)
         if (token) {
             localStorage.setItem('token', token);
-            await fetchUser(setUser);
-            navigate('/dashboard');
+            if (pref === "admin") {
+                await fetchUser(setUser);
+                navigate('/adminscreen');
+            } else {
+                await fetchUser(setUser);
+                navigate('/dashboard');
+            }
         } else {
-            // alert('no user found')
-            // navigate('/signup')
             toast.error('no user found')
+            // navigate('/signup')
         }
     } catch (error) {
-        
-        console.error(error.response);
+        console.error('Login error:', error);
     }
 };
 
@@ -71,7 +80,7 @@ const generateVoucher = async (user, setAllVoucher, allVoucher, setCurrentVouche
     try {
         const token = localStorage.getItem('token');
         if (!token) {
-            toast.error("token not available")
+            toast.error("Token not available");
         } else {
             const res = await axios.post(`${baseURL}voucher/generate`,
                 user,
@@ -87,11 +96,16 @@ const generateVoucher = async (user, setAllVoucher, allVoucher, setCurrentVouche
             // console.log("🚀 ~ generateVoucher ~ res:", res.data.data);
         }
 
-    } catch (error) {
-        toast.error(error.response.data.message);
-        console.log('Error generating voucher:', error.response.data.message);
+    } catch (err) {
+        if (err.response && err.response.status === 400) {
+            toast.error(err.response.data.message);
+        } else {
+            toast.error("Error generating voucher."); // General error message
+            console.log('Error generating voucher:', err.response.data.message);
+        }
     }
 }
+
 
 const getVouchers = async (setAllVoucher) => {
     // console.log(user)
@@ -112,25 +126,39 @@ const getVouchers = async (setAllVoucher) => {
         }
 
     } catch (error) {
-        toast.error(error.response.data.message)
         console.error('Error fetching voucher:', error.response.data.message);
     }
 }
 
-const getPublicKey = async (setPublicKey) => {
-    try {
-        const res = await axios.get(`${baseURL}stripe`)
-        setPublicKey(res.data.key)
 
-        // console.log("🚀 ~ getPublicKey ~ res:", res.data.key)
-    } catch {
-    }
+const downloadVoucher = async(data) =>{
+console.log("from handle api",data)
+    try {
+      const response = await axios.post(`${baseURL}generate-voucher`, {
+        data
+        // other data
+      }, { responseType: 'blob' });
+
+      const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'voucher.pdf');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+    } catch (error) {
+      console.log("🚀 ~ downloadVoucher ~ error:", error)
+    };
+
 
 }
 
-const makePayment = async (publicKey, loadStripe, voucher) => {
-    console.log("in make payment")
-    const stripe = await loadStripe(publicKey)
+
+
+const makePayment = async (voucher) => {
+    const stripe = await loadStripe(stripePublicKey)
+    console.log("🚀 ~ makePayment ~ stripe:", stripe)
 
     const res = await axios.post(`${baseURL}stripe/create-checkout-session`, {
         voucher
@@ -149,12 +177,13 @@ const makePayment = async (publicKey, loadStripe, voucher) => {
 
 const updateVoucherStatus = async (voucherId) => {
     try {
-        await axios.put(`http://localhost:5000/voucher/${voucherId}`, { status: 'paid' });
+        await axios.put(`http://localhost:5000/voucher/${voucherId}`, { status: 'paid' }, {paymentMode : "Online"});
         console.log('Voucher status updated to paid');
     } catch (error) {
         console.error('Error updating voucher status:', error);
     }
 };
+
 
 export {
     handleRegister,
@@ -162,7 +191,7 @@ export {
     fetchUser,
     generateVoucher,
     getVouchers,
-    getPublicKey,
     makePayment,
     updateVoucherStatus,
+    downloadVoucher,
 }
