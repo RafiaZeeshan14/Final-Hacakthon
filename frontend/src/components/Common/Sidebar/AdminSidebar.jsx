@@ -32,7 +32,7 @@ const AdminSidebar = () => {
                     </div>
                 </div>
                 <nav className="flex flex-col space-y-8 mx-8">
-                    <Link to={'/adminscreen'} className="relative flex items-center group text-gray-300 hover:text-white">
+                    <Link to={'/admin-dashboard'} className="relative flex items-center group text-gray-300 hover:text-white">
                         <FaTachometerAlt size={20} />
                         <span className="ml-2 text-gray-300 hover:text-white">Dashboard</span>
                     </Link>

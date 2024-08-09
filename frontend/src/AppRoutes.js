@@ -9,7 +9,7 @@ import { UserContext } from './components/controller/UserContext'
 import Success from './components/UserFeePortal/SuccessPage'
 import AdminDashboard from './components/AdminDashboard'
 import Dashboard from './components/DashBoard'
-import AdFeeSection from './components/AdminFeePortal/AdFeeSection'
+import AdminFeeTable from './components/AdminFeePortal/AdminFeeTable'
 
 
 const AppRoutes = () => {
@@ -29,8 +29,8 @@ const AppRoutes = () => {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/fee-payment' element={<FeePortal />} />
           <Route path='/success' element={<Success />} />
-          <Route path='/adminscreen' element={<AdminDashboard />} />
-          <Route path='/adminfeesection' element={<AdFeeSection />} />
+          <Route path='/admin-dashboard' element={<AdminDashboard />} />
+          <Route path='/adminfeesection' element={<AdminFeeTable />} />
         </Routes>
       </UserContext.Provider>
     </div>
