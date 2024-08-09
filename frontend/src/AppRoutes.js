@@ -13,6 +13,7 @@ import AdminFeeTable from './components/AdminFeePortal/AdminFeeTable'
 import RegisterForm from './components/User/RegisterForm/RegisterForm'
 import Instructor from './components/User/UserDashboard/Instructor'
 import EditProfile from './components/AdDashboard/EditProfile'
+import Courses from './components/User/Courses/Courses'
 
 
 
@@ -37,6 +38,7 @@ const AppRoutes = () => {
           <Route path='/adminfeesection' element={<AdminFeeTable />} />
           <Route path='/registration' element={<RegisterForm />} />
           <Route path='/instructor' element={<Instructor />} />
+          <Route path='/courses' element={<Courses />} />
           <Route path='/editprofile' element={<EditProfile />} />
         </Routes>
       </UserContext.Provider>
