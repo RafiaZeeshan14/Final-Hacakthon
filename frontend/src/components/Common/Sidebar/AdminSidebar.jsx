@@ -56,7 +56,7 @@ const AdminSidebar = () => {
                         <FaClipboard size={20} />
                         <span className="ml-2">Result</span>
                     </a>
-                    <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
+                    <a href="/noticepage" className="relative flex items-center group text-gray-300 hover:text-white">
                         <FaBell size={20} />
                         <span className="ml-2">Notice</span>
                     </a>
