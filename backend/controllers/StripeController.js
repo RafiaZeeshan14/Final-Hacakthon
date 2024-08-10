@@ -44,8 +44,8 @@ const stripePayment = async (req, res) => {
         payment_method_types: ['card'],
         line_items,
         mode: "payment",
-        success_url: `http://localhost:3000/success?voucherId=${voucher._id}&fee=${voucher.feeAmount}`,
-        cancel_url: "http://localhost:3000/feeportal",
+        success_url: `https://finalhacakthon.vercel.app/success?voucherId=${voucher._id}&fee=${voucher.feeAmount}`,
+        cancel_url: "https://finalhacakthon.vercel.app/feeportal",
 
     });
 

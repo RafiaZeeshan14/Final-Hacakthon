@@ -12,17 +12,17 @@ const dbconnect = require('./db.js')
 const app = express()
 const PORT = process.env.port
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
 dbconnect()
 
-// const corsOptions = {
-//   origin: ['https://practice-fee-portal-jxzs.vercel.app', 'https://practice-fee-portal.vercel.app'], // List all allowed origins
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-// };
+const corsOptions = {
+  origin: ['https://practice-fee-portal-jxzs.vercel.app', 'https://practice-fee-portal.vercel.app'], // List all allowed origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-// app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use("/user", userRoutes)
 app.use("/voucher", voucherRoutes)
