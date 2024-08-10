@@ -103,9 +103,3 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
 
 ---
 
-#### Run the server
-npm run dev
-#### Run the client
-cd client
-
-npm start
