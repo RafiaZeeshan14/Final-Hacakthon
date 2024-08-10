@@ -36,7 +36,7 @@ const generateVoucher = async (req, res) => {
         }
 
     } catch (error) {
-        if (error.message === "Vocuher already generated") {
+        if (error.message === "Voucher already generated") {
             res.status(400).json({ message: error.message });
         } else {
             res.status(500).json({ message: 'Error generating voucher' });

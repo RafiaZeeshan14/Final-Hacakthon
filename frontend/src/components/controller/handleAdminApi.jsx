@@ -1,6 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-const baseURL = "http://localhost:5000/"
+// const baseURL = "http://localhost:5000/"
+const baseURL = 'https://feeportal.vercel.app/'
 
 const getAllUsers = async (setAllUsers) => {
   // console.log(" i am in get user function in admin api")
@@ -153,7 +154,7 @@ const updateVoucherStatus = async (item, paymentMode, status) => {
         alert("Token not available");
       } else {
         const response = await axios.put(
-          `http://localhost:5000/voucher/admin/${item._id}`, // URL with the voucher ID
+          `${baseURL}voucher/admin/${item._id}`, // URL with the voucher ID
           { paymentMode , status }, // Body of the PUT request containing the payment mode to be updated
           {
             headers: {
