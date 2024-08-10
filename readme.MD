@@ -67,13 +67,14 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
    ```
 
 3. **Environment Variables**:
-  
+  ```bash
    Before running the project, ensure you have the following environment variables set up. You can create a `.env` file 
    in the root directory of your project and add the variables as shown below:
    
+  
    # ENV setup for backend
 
-```plaintext
+   ```plaintext
    MONGO_URI = your MongoDB connection URI
    PORT = your preferred port (default is 3000)
    JWT_SECRET = your JWT secret key
