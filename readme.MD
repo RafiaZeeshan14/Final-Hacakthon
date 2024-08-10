@@ -29,7 +29,7 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
   - Smooth navigation across the portal with React-Router.
   
 - **PDF Generation**: 
-  - Generate and download receipts using React-PDF.
+  - Generate and download receipts using Pdfkit.
 
 ## Technologies Used
 
@@ -40,7 +40,7 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
   - **Formik & Yup**: Libraries for handling form state and validation.
   - **React-Toastify**: For elegant toast notifications.
   - **Chart.js**: JavaScript library for data visualization.
-  - **React-PDF**: Library to create and view PDFs in React.
+  - **Pdfkit**: Library to create and view PDFs in React.
   
 - **Backend**:
   - **Express.js**: Web application framework for Node.js.
