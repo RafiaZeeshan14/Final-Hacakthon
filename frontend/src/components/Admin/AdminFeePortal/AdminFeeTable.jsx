@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { getAllVouchers, getVoubyCourseAndMonth, updateVoucherStatus, } from '../controller/handleAdminApi';
-import { formatDate } from '../helperFunction/helperFunction';
+import { getAllVouchers, getVoubyCourseAndMonth, updateVoucherStatus, } from '../../controller/handleAdminApi';
+import { formatDate } from '../../helperFunction/helperFunction';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 import AdminDropdowns from './AdminDropdowns';
-import AdminInfolayout from '../Layouts/AdminInfoLayout';
+import AdminInfolayout from '../../Layouts/AdminInfoLayout';
 
 const AdminFeeTable = () => {
   const [alldata, setAllData] = useState([]);

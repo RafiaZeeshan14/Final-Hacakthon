@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import CustomInput from "../Common/Inputs/CustomInput";
-import CustomDropdown from "../Common/Inputs/CustomDropdowns";
-import { UserContext } from "../controller/UserContext";
-import Avatar from "../Common/Avatar/Avatar";
-import AdminInfolayout from "../Layouts/AdminInfoLayout";
+import CustomInput from "../../Common/Inputs/CustomInput";
+import CustomDropdown from "../../Common/Inputs/CustomDropdowns";
+import { UserContext } from "../../controller/UserContext";
+import Avatar from "../../Common/Avatar/Avatar";
+import AdminInfolayout from "../../Layouts/AdminInfoLayout";
 
 function EditProfile() {
   const { user } = useContext(UserContext);

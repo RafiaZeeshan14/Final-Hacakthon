@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminInfolayout from '../Layouts/AdminInfoLayout';
+import AdminInfolayout from '../../Layouts/AdminInfoLayout';
 const AllBatches = () => {
     const semesters = [
         { id: 1, name: 'Spring Batch 2024', startDate: '01/01/2024', endDate: '05/01/2024', status: 'Pending' },

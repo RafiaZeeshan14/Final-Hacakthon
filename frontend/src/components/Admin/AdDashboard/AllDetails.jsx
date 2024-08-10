@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../controller/UserContext';
+// import { UserContext } from '../controller/UserContext';
 import { Link, useLocation } from 'react-router-dom';
-import AdminInfolayout from '../Layouts/AdminInfoLayout';
+import AdminInfolayout from '../../Layouts/AdminInfoLayout';
 
 
 const AllDetails = () => {

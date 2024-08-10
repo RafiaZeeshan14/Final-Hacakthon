@@ -1,4 +1,4 @@
-import DropdownInput from "../Common/Inputs/DropDownInput";
+import DropdownInput from "../../Common/Inputs/DropDownInput";
 
 
 const AdminDropdowns = ({ filterByCourse , displayMonth, filterByMonth }) => {

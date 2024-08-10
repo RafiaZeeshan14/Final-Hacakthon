@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBell } from "react-icons/fa";
-import AdminInfolayout from "../Layouts/AdminInfoLayout";
+import AdminInfolayout from "../../Layouts/AdminInfoLayout";
 
 const NotificationPage = () => {
     const notifications = [

@@ -9,18 +9,19 @@ import { UserContext } from './components/controller/UserContext'
 import Success from './components/User/UserFeePortal/SuccessPage'
 import AdminDashboard from './components/AdminDashboard'
 import Dashboard from './components/DashBoard'
-import AdminFeeTable from './components/AdminFeePortal/AdminFeeTable'
 import RegisterForm from './components/User/RegisterForm/RegisterForm'
 import Instructor from './components/User/UserDashboard/Instructor'
-import EditProfile from './components/AdDashboard/EditProfile'
 import Courses from './components/User/Courses/Courses'
-import NotificationPage from './components/AdDashboard/NotificationPage'
-import StudentDetails from './components/AdDashboard/StudentDetail'
-import AllDetails from './components/AdDashboard/AllDetails'
-import QuizesScore from './components/User/QuizScore/QuizScore'
-import OngoingCourses from './components/AdDashboard/OngoingCourses'
-import AllBatches from './components/AdDashboard/AllBatches'
 
+import AdminFeeTable from './components/Admin/AdminFeePortal/AdminFeeTable'
+import EditProfile from './components/Admin/AdDashboard/EditProfile'
+import NotificationPage from './components/Admin/AdDashboard/NotificationPage'
+import StudentDetails from './components/Admin/AdDashboard/StudentDetail'
+import AllDetails from './components/Admin/AdDashboard/AllDetails'
+import OngoingCourses from './components/Admin/AdDashboard/OngoingCourses'
+import AllBatches from './components/Admin/AdDashboard/AllBatches'
+
+import QuizesScore from './components/User/QuizScore/QuizScore'
 
 
 const AppRoutes = () => {

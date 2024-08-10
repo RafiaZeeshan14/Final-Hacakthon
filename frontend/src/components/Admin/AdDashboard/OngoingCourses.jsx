@@ -2,7 +2,7 @@ import React from "react";
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { IoBook } from "react-icons/io5";
 import { HiUser } from "react-icons/hi2";
-import AdminInfolayout from "../Layouts/AdminInfoLayout";
+import AdminInfolayout from "../../Layouts/AdminInfoLayout";
 
 const OngoingCourses = () => {
   const ongoingCourses = [
