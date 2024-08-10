@@ -16,7 +16,7 @@ app.use(express.json())
 dbconnect()
 
 const corsOptions = {
-  origin: ['https://feeportal.vercel.app/', 'https://finalhacakthon.vercel.app/'], // List all allowed origins
+  origin: [' https://finalhacakthon.vercel.app', 'https://feeportal.vercel.app'], // List all allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
