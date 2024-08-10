@@ -74,7 +74,6 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
   
    # ENV setup for backend
 
-   ```plaintext
    MONGO_URI = your MongoDB connection URI
    PORT = your preferred port (default is 3000)
    JWT_SECRET = your JWT secret key
@@ -83,7 +82,6 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
 
 # ENV setup for frontend
 
-```plaintext
   REACT_APP_STRIPE_PUBLIC_KEY=pk_test_51H8pXl2...
 
      ```
