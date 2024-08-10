@@ -95,10 +95,48 @@ const login = async (req, res) => {
 
 };
 
+const editUser = async (req, res) => {
+  const { id } = req.params; // Extract user ID from URL parameters
+  const { name, email, password } = req.body; // Extract data from request body
+
+  console.log("🚀 ~ editUser ~ id:", id);
+  console.log("🚀 ~ editUser ~ name, email, password:", name, email, password);
+
+  try {
+    // Find the user by ID
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update fields if they are provided
+    if (name) user.name = name;
+    if (email) user.email = email;
+
+    // Hash password if provided
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(password, salt);
+    }
+
+    // Save updated user
+    const updatedUser = await user.save();
+
+    // Send response
+    res.status(200).json({ status: 200, data: updatedUser, message: "User updated successfully" });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    if (!res.headersSent) {
+      res.status(500).json({ message: 'Server error' });
+    }
+  }
+};
+
 
 
 module.exports = {
   createUser,
   getUser,
   login,
+  editUser,
 };

@@ -177,7 +177,7 @@ const makePayment = async (voucher) => {
 
 const updateVoucherStatus = async (voucherId) => {
     try {
-        await axios.put(`http://localhost:5000/voucher/${voucherId}`, { status: 'paid' }, { paymentMode: "Online" });
+        await axios.put(`${baseURL}voucher/${voucherId}`, { status: 'paid' }, { paymentMode: "Online" });
         console.log('Voucher status updated to paid');
     } catch (error) {
         console.error('Error updating voucher status:', error);

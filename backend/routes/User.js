@@ -1,11 +1,12 @@
 const { Router } = require("express");
-const { createUser, getUser, login } = require("../controllers/UserController");
+const { createUser, getUser, login, editUser } = require("../controllers/UserController");
 const { getAllUsers, deleteUser, getUsersByCourse } = require("../controllers/AdminController");
 const { auth } = require("../middleware/auth");
 
 const router = Router();
 router.post("/", createUser); 
 router.post("/login", login);
+router.put("/:id",auth, editUser);
 // router.put('/:id' , updateUser) // for user and admin both
 
 // for user
