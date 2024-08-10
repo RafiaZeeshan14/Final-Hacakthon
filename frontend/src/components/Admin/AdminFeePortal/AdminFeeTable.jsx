@@ -227,9 +227,7 @@ const AdminFeeTable = () => {
                           >
                             <FaEdit />
                           </button>
-                          <button className="text-red-500 hover:text-red-700 mx-1">
-                            <FaTrash />
-                          </button>
+                          
                         </>
                       )}
                     </td>

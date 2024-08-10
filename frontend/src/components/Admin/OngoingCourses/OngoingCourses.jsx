@@ -9,7 +9,7 @@ const OngoingCourses = () => {
     {
       title: "Graphic Fundamentals",
       code: "ART101",
-      professor: "Prof. Smith",
+      professor: "Ma'am Maria",
       days: "Monday & Wednesday",
       time: "9:00 AM - 10:30 AM",
       location: "Design Studio A",
@@ -18,7 +18,7 @@ const OngoingCourses = () => {
     {
       title: "Advanced Web Design",
       code: "ITD201",
-      professor: "Dr. Johnson",
+      professor: "Ma'am Faiza",
       days: "Tuesday & Thursday",
       time: "1:30 PM - 3:00 PM",
       location: "Computer Lab 3",
@@ -27,7 +27,7 @@ const OngoingCourses = () => {
     {
       title: "User Experience Research",
       code: "UXD301",
-      professor: "Prof. Davis",
+      professor: "Sir Ishaq",
       days: "Monday & Saturday",
       time: "11:00 AM - 12:30 AM",
       location: "Design Lab 2",
@@ -36,7 +36,7 @@ const OngoingCourses = () => {
     {
       title: "3D Animation Techniques",
       code: "ANI301",
-      professor: "Dr. Martinez",
+      professor: "Ma'am Iqra",
       days: "Wednesday",
       time: "2:00 PM - 5:00 PM",
       location: "Animation Studio",
@@ -45,7 +45,7 @@ const OngoingCourses = () => {
     {
       title: "Digital Painting DP",
       code: "ART202",
-      professor: "Prof. Lee",
+      professor: "Sir Muzammil",
       days: "Friday",
       time: "10:00 AM - 1:00 PM",
       location: "Art Lab 1",
@@ -54,7 +54,7 @@ const OngoingCourses = () => {
     {
       title: "Motion Graphics MG",
       code: "ANI302",
-      professor: "Dr. White",
+      professor: "Sir Rahim",
       days: "Thursday",
       time: "1:00 PM - 4:00 PM",
       location: "Animation Studio",
@@ -66,7 +66,7 @@ const OngoingCourses = () => {
     {
       title: "Basic Typography BT",
       code: "ART102",
-      professor: "Prof. Walker",
+      professor: "Sir Ghous",
       days: "Completed",
       time: "N/A",
       location: "N/A",
@@ -75,7 +75,7 @@ const OngoingCourses = () => {
     {
       title: "Introduction to Programming",
       code: "ITD101",
-      professor: "Dr. Miller",
+      professor: "Sir Zeeshan",
       days: "Completed",
       time: "N/A",
       location: "N/A",
@@ -84,7 +84,7 @@ const OngoingCourses = () => {
     {
       title: "Human-Computer Interaction",
       code: "UXD201",
-      professor: "Prof. Clark",
+      professor: "Sir  Wajid",
       days: "Completed",
       time: "N/A",
       location: "N/A",
