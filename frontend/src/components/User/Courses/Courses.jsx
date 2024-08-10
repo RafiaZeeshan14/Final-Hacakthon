@@ -3,13 +3,14 @@ import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { IoBook } from "react-icons/io5";
 import { HiUser } from "react-icons/hi2";
 import UserFeeLayout from "../../Layouts/UserFeeLayout";
+import { Link } from "react-router-dom";
 
 const Courses = () => {
   const courses = [
     {
       title: "Graphic Fundamentals",
       code: "ART101",
-      professor: "Prof. Smith",
+      professor: "Ma'am Maria",
       days: "Monday & Wednesday",
       time: "9:00 AM - 10:30 AM",
       location: "Design Studio A",
@@ -18,7 +19,7 @@ const Courses = () => {
     {
       title: "Advanced Web Design",
       code: "ITD201",
-      professor: "Dr. Johnson",
+      professor: "Sir Ghous",
       days: "Tuesday & Thursday",
       time: "1:30 PM - 3:00 PM",
       location: "Computer Lab 3",
@@ -27,7 +28,7 @@ const Courses = () => {
     {
       title: "User Experience Research",
       code: "UXD301",
-      professor: "Prof. Davis",
+      professor: "Ma'am Faiza",
       days: "Monday & Saturday",
       time: "11:00 AM - 12:30 AM",
       location: "Design Lab 2",
@@ -36,7 +37,7 @@ const Courses = () => {
     {
       title: "3D Animation Techniques",
       code: "ANI301",
-      professor: "Dr. Martinez",
+      professor: "Sir Ishaq",
       days: "Wednesday",
       time: "2:00 PM - 5:00 PM",
       location: "Animation Studio",
@@ -80,9 +81,9 @@ const Courses = () => {
             </div>
             <div className="flex justify-end">
               <button className="relative mt-2 inline-flex items-center justify-center p-[2px] rounded bg-gradient-to-r from-green-500 to-blue-500">
-                <span className="bg-white hover:bg-gray-100 text-[#285192] font-medium rounded px-2 py-1 text-[15px]">
+                <Link to={"/registration"} className="bg-white hover:bg-gray-100 text-[#285192] font-medium rounded px-2 py-1 text-[15px]">
                   Enroll
-                </span>
+                </Link>
               </button>
             </div>
           </div>

@@ -51,7 +51,7 @@ const Table = ({ vouchers }) => {
                   <td className="py-2 text-center">
                     <span
                       className={`px-2 py-1 rounded-full text-sm ${
-                        item.status === "Paid"
+                        item.status === "paid"
                           ? "bg-green-100 text-green-700"
                           : item.status === "Pending"
                           ? "bg-gray-100 text-gray-700"

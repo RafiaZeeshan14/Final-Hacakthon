@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UserFeeLayout from "../../Layouts/UserFeeLayout";
 import { FaBell } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
+
+export const notice = [
+  { id: 6, title: "Fee Payment Due", message: "Your tuition fee payment is due. Make sure to pay it within due date to avoid late fee charges.", date: "2024-08-05", isRead: false },
+];
 
 const Notification = () => {
   const notifications = [
@@ -16,6 +21,19 @@ const Notification = () => {
     { id: 10, title: "Class Rescheduled", message: "Your class for Advanced Web Design has been rescheduled to next week.", date: "2024-07-29", isRead: true },
   ];
 
+  const location = useLocation();
+  const highlightedId = location.state?.highlight;
+
+  useEffect(() => {
+    if (highlightedId) {
+      const element = document.getElementById(`notification-${highlightedId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+        element.classList.add("bg-yellow-100");
+      }
+    }
+  }, [highlightedId]);
+
   const today = new Date().toISOString().split("T")[0];
   const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
   const lastWeekDate = new Date(Date.now() - 7 * 86400000).toISOString().split("T")[0];
@@ -30,13 +48,13 @@ const Notification = () => {
   const getCategoryStyle = (category) => {
     switch (category) {
       case "Today":
-        return "text-green-500"; // Green for today's notifications
+        return "text-green-500";
       case "Yesterday":
-        return "text-yellow-500"; // Yellow for yesterday's notifications
+        return "text-yellow-500";
       case "LastWeek":
-        return "text-blue-500"; // Blue for last week's notifications
+        return "text-blue-500";
       default:
-        return "text-gray-800"; // Default color for older notifications
+        return "text-gray-800";
     }
   };
 
@@ -56,6 +74,7 @@ const Notification = () => {
             {categorizedNotifications[category].map((notification) => (
               <div
                 key={notification.id}
+                id={`notification-${notification.id}`}
                 className={`p-4 mb-3 rounded-lg shadow-sm border ${
                   notification.isRead ? "bg-gray-100" : "bg-white"
                 }`}
