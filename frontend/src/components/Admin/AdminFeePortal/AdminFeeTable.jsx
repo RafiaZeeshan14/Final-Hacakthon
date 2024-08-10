@@ -56,8 +56,8 @@ const AdminFeeTable = () => {
     if (paymentMode || status) {
       await updateVoucherStatus(item, paymentMode, status)
       setEditIndex(null)
-       await getAllVouchers(setAllData);
-       await getVoubyCourseAndMonth(course, month, setFilteredData)
+      await getAllVouchers(setAllData);
+      await getVoubyCourseAndMonth(course, month, setFilteredData)
     }
   };
 
@@ -84,7 +84,7 @@ const AdminFeeTable = () => {
   );
 
   return (
-   <AdminInfolayout>
+    <AdminInfolayout>
       <div className='flex flex-col p-2 '>
         <AdminDropdowns filterByCourse={getCourse} filterByMonth={getMonth} displayMonth={true} />
         <div className="container pl-2 mx-auto mt-8">
@@ -110,7 +110,15 @@ const AdminFeeTable = () => {
                   <tr key={index} className="bg-gray-50 even:bg-gray-100 text-sm">
                     <td className="py-3 text-center">{item?.name}</td>
                     <td className="py-2 text-center">{formatDate(item?.dueDate)}</td>
-                    <td className="py-2 text-center">{item?.feeAmount}</td>
+                    <td className="py-2 text-center">
+                      {
+                        item.feeAmount
+                          ? (item.dueDate && new Date(item.createdAt) > new Date(item.dueDate)
+                            ? `Rs.${item.feeAmount + 100}/=`
+                            : `Rs.${item.feeAmount}/=`)
+                          : "--"
+                      }
+                    </td>
                     <td className="py-2 text-center">
                       {item?.paymentMode === "Cash" || item?.paymentMode === "Online" ?
                         (
@@ -180,7 +188,7 @@ const AdminFeeTable = () => {
                       }
                     </td>
                     <td className="py-2 text-center">
-                    {item?.batch}
+                      {item?.batch}
                       {/* {{editIndex === index ? (
                         <select
                           name="batch"
@@ -227,7 +235,7 @@ const AdminFeeTable = () => {
                           >
                             <FaEdit />
                           </button>
-                          
+
                         </>
                       )}
                     </td>
