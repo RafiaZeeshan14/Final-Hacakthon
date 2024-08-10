@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaRegCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaCalendarAlt, FaClipboard } from "react-icons/fa";
+import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaRegCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaCalendarAlt, FaClipboard, FaUserEdit } from "react-icons/fa";
 
 const Sidebar = () => {
   const navigate = useNavigate()
@@ -11,7 +11,7 @@ const Sidebar = () => {
     { icon: <FaBook size={20} />, text: "Courses", link: "/courses" },
     { icon: <FaCalendarAlt size={20} />, text: "Quizes Score", link: "/quizes-score" },
     { icon: <FaBell size={20} />, text: "Notifications", link: "/notifications" },
-    { icon: <FaRegCalendarAlt size={20} />, text: "Schedule", link: "/schedule" },
+    { icon: <FaUserEdit size={20} />, text: "Edit Profile", link: "/edituserprofile" },
   ];
   const handleLogout = () => {
     localStorage.removeItem('token')

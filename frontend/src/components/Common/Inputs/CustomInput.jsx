@@ -9,12 +9,14 @@ const CustomInput = ({
   onChange,
   disabled,
   onFocus,
+  placeholder,
   ...rest
 }) => {
 
   return (
     <div className="relative my-6">
-      <input
+     <input
+        placeholder={placeholder}
         id={id}
         type={type ? type : "text"}
         name={name}
