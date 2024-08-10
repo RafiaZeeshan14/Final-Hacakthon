@@ -108,7 +108,7 @@ const NotificationPage = () => {
                                     <h3 className="font-semibold text-lg">{notification.title}</h3>
                                     <span className="text-sm text-gray-500">{notification.date}</span>
                                 </div>
-                                <p className="text-gray-700">{notification.message}</p>
+                                <p className="text-gray-700 text-sm">{notification.message}</p>
                             </div>
                         ))}
                     </div>

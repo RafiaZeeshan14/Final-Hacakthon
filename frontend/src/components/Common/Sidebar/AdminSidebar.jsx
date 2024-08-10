@@ -13,7 +13,7 @@ const AdminSidebar = () => {
         { icon: <FaPen size={20} />, text: "Student Detail", link: "/studentdetails" },
         { icon: <FaBook size={20} />, text: "All Courses", link: "/ongoing-courses" },
         { icon: <FaCalendarAlt size={20} />, text: "Batches Info", link: "/all-batches" },
-        { icon: <FaBell size={20} />, text: "Notice", link: "/noticepage" },
+        { icon: <FaBell size={20} />, text: "Notification", link: "/noticepage" },
         { icon: <FaUserEdit size={20} />, text: "Edit Profile", link: "/editprofile" },
     ];
 

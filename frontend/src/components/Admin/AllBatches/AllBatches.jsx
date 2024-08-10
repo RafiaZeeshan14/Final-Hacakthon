@@ -14,7 +14,7 @@ const AllBatches = () => {
         <AdminInfolayout>
             <div className="py-4 bg-transparent h-[550px]">
                 <h1 className="text-3xl font-bold mb-4 gradient-text">All Batches</h1>
-                <button className='ml-2 mt-3 mb-5 text-gray-800 rounded-lg text-md px-6 py-3 bg-green-100'>Add New Batch</button>
+                <button className='ml-2 mt-3 mb-5 text-gray-800 rounded-lg text-sm px-6 py-3 bg-green-100'>Add New Batch</button>
                 <div className="relative pl-4 h-[400px] overflow-y-scroll">
                     <div className='border-l border-gray-200'>
                         {semesters.map((semester, index) => (
@@ -39,9 +39,9 @@ const SemesterTimelineItem = ({ semester, isLast }) => {
         <div className={`ml-8 mb-8 ${isLast ? '' : 'pb-8'}`}>
             <div className="absolute left-[8px] w-4 h-4 bg-blue-500 rounded-full"></div>
             <h2 className="text-xl font-semibold text-gray-800">{semester.name}</h2>
-            <p className="text-gray-600">Start Date: {semester.startDate}</p>
-            <p className="text-gray-600">End Date: {semester.endDate}</p>
-            <p className={`${statusColor} text-md font-semibold`}><span className='text-gray-600 font-normal'>Status:</span>  {semester.status}</p>
+            <p className="text-gray-600 text-[14px] my-1">Start Date: {semester.startDate}</p>
+            <p className="text-gray-600 text-[14px]">End Date: {semester.endDate}</p>
+            <p className={`${statusColor} text-md font-semibold my-2`}><span className='text-gray-600 font-normal'>Status:</span>  {semester.status}</p>
             <div className="mt-4">
                 <button className="relative mt-2 mr-2 inline-flex items-center justify-center p-[2px] rounded bg-gradient-to-r from-green-500 to-blue-500">
                     <span className="bg-white hover:bg-gray-100 text-[#285192] font-medium rounded px-4 py-1 text-[15px]">

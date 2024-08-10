@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import AdminInfolayout from "../../Layouts/AdminInfoLayout";
-import AdminDropdowns from "../../Admin/AdminFeePortal/AdminDropdowns";
+import AdminDropdowns from "../AdminFeePortal/AdminDropdowns";
 import Avatar from "../../Common/Avatar/Avatar";
 import { getAllUsers, getUserbyCourse, getVoubyCourse } from "../../controller/handleAdminApi";
 

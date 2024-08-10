@@ -10,7 +10,7 @@ const Sidebar = () => {
     { icon: <FaPen size={20} />, text: "Registration", link: "/registration" },
     { icon: <FaBook size={20} />, text: "Courses", link: "/courses" },
     { icon: <FaCalendarAlt size={20} />, text: "Quizes Score", link: "/quizes-score" },
-    { icon: <FaBell size={20} />, text: "Notice", link: "/notice" },
+    { icon: <FaBell size={20} />, text: "Notifications", link: "/notifications" },
     { icon: <FaRegCalendarAlt size={20} />, text: "Schedule", link: "/schedule" },
   ];
   const handleLogout = () => {

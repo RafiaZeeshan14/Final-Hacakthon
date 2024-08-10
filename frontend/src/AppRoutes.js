@@ -14,14 +14,15 @@ import Instructor from './components/User/UserDashboard/Instructor'
 import Courses from './components/User/Courses/Courses'
 
 import AdminFeeTable from './components/Admin/AdminFeePortal/AdminFeeTable'
-import EditProfile from './components/Admin/AdDashboard/EditProfile'
-import NotificationPage from './components/Admin/AdDashboard/NotificationPage'
-import StudentDetails from './components/Admin/AdDashboard/StudentDetail'
-import AllDetails from './components/Admin/AdDashboard/AllDetails'
-import OngoingCourses from './components/Admin/AdDashboard/OngoingCourses'
-import AllBatches from './components/Admin/AdDashboard/AllBatches'
+import EditProfile from './components/Admin/EditProfile/EditProfile'
+import NotificationPage from './components/Admin/NotificationPage/NotificationPage'
+import StudentDetails from './components/Admin/StudentDetail/StudentDetail'
+import AllDetails from './components/Admin/AllDetails/AllDetails'
+import OngoingCourses from './components/Admin/OngoingCourses/OngoingCourses'
+import AllBatches from './components/Admin/AllBatches/AllBatches'
 
 import QuizesScore from './components/User/QuizScore/QuizScore'
+import Notification from './components/User/Notification/Notification'
 
 
 const AppRoutes = () => {
@@ -53,7 +54,7 @@ const AppRoutes = () => {
           <Route path='/quizes-score' element={<QuizesScore />} />
           <Route path='/ongoing-courses' element={<OngoingCourses />} />
           <Route path='/all-batches' element={<AllBatches/>} />
-
+          <Route path='/notifications' element={<Notification/>} />
         </Routes>
       </UserContext.Provider>
     </div>
