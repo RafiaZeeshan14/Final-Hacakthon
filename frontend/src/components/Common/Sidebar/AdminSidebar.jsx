@@ -1,18 +1,27 @@
 import React, { useContext } from 'react';
-import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaRegCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaCalendarAlt, FaClipboard } from "react-icons/fa";
+import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaRegCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaCalendarAlt, FaUserEdit } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../controller/UserContext';
-import { FaUserEdit } from "react-icons/fa";
-const AdminSidebar = () => {
-    const { user } = useContext(UserContext)
-    // console.log("🚀 ~ Sidebar ~ user:", user)
 
-    const navigate = useNavigate()
+const AdminSidebar = () => {
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const menuItems = [
+        { icon: <FaTachometerAlt size={20} />, text: "Dashboard", link: "/admin-dashboard" },
+        { icon: <FaDollarSign size={20} />, text: "Payment Info", link: "/adminfeesection" },
+        { icon: <FaPen size={20} />, text: "Student Detail", link: "/studentdetails" },
+        { icon: <FaBook size={20} />, text: "All Courses", link: "/ongoing-courses" },
+        { icon: <FaCalendarAlt size={20} />, text: "Batches Info", link: "/all-batches" },
+        { icon: <FaBell size={20} />, text: "Notice", link: "/noticepage" },
+        { icon: <FaUserEdit size={20} />, text: "Edit Profile", link: "/editprofile" },
+    ];
 
     const handleLogout = () => {
-        localStorage.removeItem('token')
-        navigate('../')
+        localStorage.removeItem('token');
+        navigate('../');
     }
+
     return (
         <div className="grid grid-cols-[auto_1fr] h-full p-1">
             <aside
@@ -31,42 +40,20 @@ const AdminSidebar = () => {
                         <FaUserGraduate size={60} />
                     </div>
                 </div>
-                <nav className="flex flex-col space-y-8 mx-8">
-                    <Link to={'/admin-dashboard'} className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaTachometerAlt size={20} />
-                        <span className="ml-2 text-gray-300 hover:text-white">Dashboard</span>
-                    </Link>
-                    <Link to={'/adminfeesection'} className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaDollarSign size={20} />
-                        <span className="ml-2">Payment Info</span>
-                    </Link>
-                    <Link to={'/studentdetails'} className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaPen size={20} />
-                        <span className="ml-2">Student Detail</span>
-                    </Link>
-                    <Link to={'/ongoing-courses'} className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaBook size={20} />
-                        <span className="ml-2">All Courses</span>
-                    </Link>
-                    <a href="#" className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaCalendarAlt size={20} />
-                        <span className="ml-2">All Semester</span>
-                    </a>
-                    
-                    <a href="/noticepage" className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaBell size={20} />
-                        <span className="ml-2">Notice</span>
-                    </a>
-                    <Link to={'/editprofile'} className="relative flex items-center group text-gray-300 hover:text-white">
-                        <FaUserEdit size={20} />
-                        <span className="ml-2">Edit Profile</span>
-                    </Link>
-                    <button onClick={() => handleLogout()} className="relative flex  group text-gray-300 hover:text-white pt-10">
+                <nav className="flex flex-col space-y-10 mx-8 mt-3">
+                    {menuItems.map((item, index) => (
+                        <Link key={index} to={item.link} className="relative flex items-center group text-gray-300 hover:text-white">
+                            {item.icon}
+                            <span className="ml-2">{item.text}</span>
+                        </Link>
+                    ))}
+                </nav>
+                <div className="mt-auto mx-8 pt-10">
+                    <button onClick={handleLogout} className="relative flex group text-gray-300 hover:text-white pt-10">
                         <FaSignOutAlt size={20} />
                         <span className="ml-2">Logout</span>
                     </button>
-
-                </nav>
+                </div>
             </aside>
         </div>
     );
