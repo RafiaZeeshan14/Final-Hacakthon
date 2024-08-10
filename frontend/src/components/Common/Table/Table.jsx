@@ -33,47 +33,52 @@ const Table = ({ vouchers }) => {
           {vouchers.length === 0
             ? renderFallbackRow()
             : vouchers.map((item, index) => (
-                <tr key={index} className="bg-gray-50 even:bg-gray-100 text-sm">
-                  <td className="py-2 text-center">
-                    {item.voucherCode
-                      ? `#${item.voucherCode.slice(8, 17)}`
-                      : "--"}
-                  </td>
-                  <td className="py-2 text-center">
-                    {item.createdAt ? formatDate(item.createdAt) : "--"}
-                  </td>
-                  <td className="py-2 text-center">
-                    {item.feeAmount ? `Rs.${item.feeAmount}/=` : "--"}
-                  </td>
-                  <td className="py-2 text-center">
-                    {item.dueDate ? formatDate(item.dueDate) : "--"}
-                  </td>
-                  <td className="py-2 text-center">
-                    <span
-                      className={`px-2 py-1 rounded-full text-sm ${
-                        item.status === "paid"
-                          ? "bg-green-100 text-green-700"
-                          : item.status === "Pending"
+              <tr key={index} className="bg-gray-50 even:bg-gray-100 text-sm">
+                <td className="py-2 text-center">
+                  {item.voucherCode
+                    ? `#${item.voucherCode.slice(8, 17)}`
+                    : "--"}
+                </td>
+                <td className="py-2 text-center">
+                  {item.createdAt ? formatDate(item.createdAt) : "--"}
+                </td>
+                <td className="py-2 text-center">
+                  {
+                    item.feeAmount
+                      ? (item.dueDate && new Date(item.createdAt) > new Date(item.dueDate)
+                        ? `Rs.${item.feeAmount + 100}/=`
+                        : `Rs.${item.feeAmount}/=`)
+                      : "--"
+                  }
+                </td>
+                <td className="py-2 text-center">
+                  {item.dueDate ? formatDate(item.dueDate) : "--"}
+                </td>
+                <td className="py-2 text-center">
+                  <span
+                    className={`px-2 py-1 rounded-full text-sm ${item.status === "paid"
+                        ? "bg-green-100 text-green-700"
+                        : item.status === "Pending"
                           ? "bg-gray-100 text-gray-700"
                           : "bg-yellow-100 text-yellow-700"
                       }`}
-                    >
-                      {item.status || "--"}
-                    </span>
-                  </td>
-                  <td className="py-2 text-center text-sm">
+                  >
+                    {item.status || "--"}
+                  </span>
+                </td>
+                <td className="py-2 text-center text-sm">
                   <div className="flex justify-center space-x-2 ">
                     <button
                       className="px-2 py-2 bg-pink-100 text-pink-700 border border-pink-300 rounded"
-                      onClick={()=>downloadVoucher(item)}
+                      onClick={() => downloadVoucher(item)}
                     >
                       {'Download PDF'}
                     </button>
                     <PayOnline voucher={item} />
                   </div>
                 </td>
-                </tr>
-              ))}
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
