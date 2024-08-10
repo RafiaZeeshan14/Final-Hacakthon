@@ -58,18 +58,33 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
 2. **Install Dependencies**:
    ```bash
    # Install server dependencies
+   cd backend
    npm install
    
    # Install client dependencies
-   cd client
+   cd frontend
    npm install
    ```
 
 3. **Environment Variables**:
-   - Create a `.env` file in the root directory with the following:
-     ```
-     MONGO_URI=your_mongodb_uri
-     STRIPE_SECRET_KEY=your_stripe_secret_key
+  
+   Before running the project, ensure you have the following environment variables set up. You can create a `.env` file 
+   in the root directory of your project and add the variables as shown below:
+   
+   # ENV setup for backend
+
+```plaintext
+   MONGO_URI = your MongoDB connection URI
+   PORT = your preferred port (default is 3000)
+   JWT_SECRET = your JWT secret key
+   ADMIN_ID = the ID of the admin user (create an admin user and paste its `user._id` here)
+   STRIPE_SECRET_KEY = your Stripe secret key
+
+# ENV setup for frontend
+
+```plaintext
+  REACT_APP_STRIPE_PUBLIC_KEY=pk_test_51H8pXl2...
+
      ```
 
 4. **Run the Application**:
