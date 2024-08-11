@@ -6,7 +6,7 @@ const AdminInfolayout = ({ children }) => {
   return (
     <div className="grid grid-cols-[auto_1fr]">
             <AdminSidebar />
-            <main className="p-4">
+            <main className="p-4 w-full overflow-y-auto">
                 <Navbar />     
                    <div className="p-4 flex flex-col">
                     {children}
