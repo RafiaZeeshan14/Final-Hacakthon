@@ -5,7 +5,7 @@ const UserFeeLayout = ({ children }) => {
     return (
         <div className="grid grid-cols-[auto_1fr]">
             <Sidebar />
-            <main className="p-4">
+            <main className="p-4 w-full overflow-y-auto">
                 <Navbar />     
                    <div className="p-4">
                     {children}

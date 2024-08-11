@@ -35,7 +35,7 @@ const AdminSidebar = () => {
                 style={{
                     background: 'linear-gradient(0deg, #285192 80.26%, rgba(40, 81, 146, 0) 143.39%, #285192 143.39%)',
                 }}
-                className="fixed top-0 left-0 h-screen flex flex-col rounded-3xl p-4 text-sm text-white w-60"
+                className="fixed top-0 left-0 h-screen flex flex-col rounded-r-3xl p-4 text-sm text-white w-60"
             >
                 <div className="flex flex-col items-center mb-8 cursor-pointer">
                     <div
