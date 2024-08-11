@@ -21,6 +21,7 @@ import AllBatches from './components/Admin/AllBatches/AllBatches'
 import QuizesScore from './components/User/QuizScore/QuizScore'
 import Notification from './components/User/Notification/Notification'
 import EditUserProfile from './components/User/EditUserProfile/EditUserProfile'
+import EnrollCard from './components/User/EnrollCard/EnrollCard'
 
 
 const AppRoutes = () => {
@@ -47,6 +48,7 @@ const AppRoutes = () => {
           <Route path='/courses' element={<Courses />} />
           <Route path='/quizes-score' element={<QuizesScore />} />
           <Route path='/edituserprofile' element={<EditUserProfile/>} />
+          <Route path='/enrollcard' element={<EnrollCard/>}/>
           {/**Admin Routes */}
           <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route path='/adminfeesection' element={<AdminFeeTable />} />

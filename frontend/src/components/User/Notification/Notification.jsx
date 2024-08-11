@@ -29,7 +29,7 @@ const Notification = () => {
       const element = document.getElementById(`notification-${highlightedId}`);
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "center" });
-        element.classList.add("bg-yellow-100");
+        element.classList.add("bg-red-100");
       }
     }
   }, [highlightedId]);
