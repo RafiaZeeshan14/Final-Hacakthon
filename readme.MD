@@ -1,7 +1,21 @@
 
+
 # Fee Portal of SMIT
-### Deployed Link
+### - Deployed Link
 https://finalhacakthon.vercel.app/
+
+**To Access Admin Dashboard , Login With These Credentials**
+
+* Admin Id : admin@gmail.com
+   
+  Pass : admin123
+
+**To Make Stripe Acc Payment , Add These Credentials**
+
+* Stripe Acc No : 4242 4242 4242 4242.  
+   **MVC** :  12/34 , 
+  **CVC** : 567
+
 ## Overview :
 
 The **Fee Portal of SMIT** is a comprehensive web application designed to streamline the fee management process for SMIT. The portal provides a user-friendly interface for students and administrators to manage fee payments, view payment history, and generate PDF receipts. It integrates with various modern technologies to ensure a seamless user experience.
@@ -83,9 +97,7 @@ The **Fee Portal of SMIT** is a comprehensive web application designed to stream
 # ENV setup for frontend
 
   REACT_APP_STRIPE_PUBLIC_KEY=pk_test_51H8pXl2...
-
-     ```
-
+```
 4. **Run the Application**:
    ```bash
    # Run the server
