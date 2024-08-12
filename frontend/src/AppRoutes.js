@@ -22,6 +22,7 @@ import QuizesScore from './components/User/QuizScore/QuizScore'
 import Notification from './components/User/Notification/Notification'
 import EditUserProfile from './components/User/EditUserProfile/EditUserProfile'
 import EnrollCard from './components/User/EnrollCard/EnrollCard'
+import UpcomingPosts from './components/Admin/UpcomingPosts/UpcomingPosts'
 
 
 const AppRoutes = () => {
@@ -59,6 +60,7 @@ const AppRoutes = () => {
           <Route path='/ongoing-courses' element={<OngoingCourses />} />
           <Route path='/all-batches' element={<AllBatches/>} />
           <Route path='/notifications' element={<Notification/>} />
+          <Route path='/posts' element={<UpcomingPosts/>} />
         </Routes>
       </UserContext.Provider>
     </div>

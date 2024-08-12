@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FaTachometerAlt, FaDollarSign, FaPen, FaBook, FaCalendarAlt, FaBell, FaSignOutAlt, FaUserGraduate, FaUserEdit } from "react-icons/fa";
+import { MdOutlinePostAdd } from "react-icons/md";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../../controller/UserContext';
 
@@ -21,6 +22,7 @@ const AdminSidebar = () => {
         { icon: <FaBook size={20} />, text: "All Courses", link: "/ongoing-courses" },
         { icon: <FaCalendarAlt size={20} />, text: "Batches Info", link: "/all-batches" },
         { icon: <FaBell size={20} />, text: "Notification", link: "/noticepage" },
+        { icon: <MdOutlinePostAdd  size={20} />, text: "Posts Info", link: "/posts" },
         { icon: <FaUserEdit size={20} />, text: "Edit Profile", link: "/editprofile" },
     ];
 
@@ -47,7 +49,7 @@ const AdminSidebar = () => {
                         <FaUserGraduate size={60} />
                     </div>
                 </div>
-                <nav className="flex flex-col space-y-8 mx-8 mt-3">
+                <nav className="flex flex-col space-y-7 mx-8 mt-3">
                     {menuItems.map((item, index) => (
                         <Link
                             key={index}
@@ -63,7 +65,7 @@ const AdminSidebar = () => {
                         </Link>
                     ))}
                 </nav>
-                <div className="mt-auto mx-8 pt-10">
+                <div className="mt-4 mx-8 pt-10">
                     <button onClick={handleLogout} className="relative flex group text-gray-300 hover:text-white pt-4">
                         <FaSignOutAlt size={20} />
                         <span className="ml-2">Logout</span>
