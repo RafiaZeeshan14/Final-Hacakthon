@@ -59,7 +59,7 @@ const Performance = () => {
   return (
     <>
       <div className='flex flex-col'>
-        <div className="max-w-xl py-4 pr-3 pl-3 ">
+        <div className="max-w-xl py-4 pr-3 pl-3  ">
           <div className="flex justify-between items-center mb-2">
             <h2 className="text-xl font-bold text-[#15134bbb]">{TITLE}</h2>
             <select

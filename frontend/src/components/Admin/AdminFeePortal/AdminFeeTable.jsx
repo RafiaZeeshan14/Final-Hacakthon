@@ -85,14 +85,14 @@ const AdminFeeTable = () => {
 
   return (
     <AdminInfolayout>
-      <div className='flex flex-col p-2 '>
+      <div className='flex flex-col p-2  '>
         <AdminDropdowns filterByCourse={getCourse} filterByMonth={getMonth} displayMonth={true} />
-        <div className="container pl-2 mx-auto mt-8">
+        <div className="container sm:pl-2 mx-auto mt-8">
           <h2 className="text-2xl font-semibold gradient-text">Summary</h2>
           <table className="min-w-full bg-white mt-4">
             <thead>
-              <tr>
-                <th className="py-2 w-2/12">Student Name</th>
+              <tr className='text-xs sm:text-base'>
+                <th className="py-2 w-2/12 ">Student Name</th>
                 <th className="py-2 w-1/12">Due Date</th>
                 <th className="py-2 w-2/12">Amount</th>
                 <th className="py-2 w-2/12">Payment Mode</th>
@@ -107,7 +107,7 @@ const AdminFeeTable = () => {
               )
                 :
                 vouchersToDisplay.map((item, index) => (
-                  <tr key={index} className="bg-gray-50 even:bg-gray-100 text-sm">
+                  <tr key={index} className="bg-gray-50 even:bg-gray-100 sm:text-sm text-xs ">
                     <td className="py-3 text-center">{item?.name}</td>
                     <td className="py-2 text-center">{formatDate(item?.dueDate)}</td>
                     <td className="py-2 text-center">
@@ -143,15 +143,15 @@ const AdminFeeTable = () => {
                         )
                       }
                     </td>
-                    <td className="py-2 text-center">
+                    <td className="py-2 text-center ">
                       {item?.status === "paid" ?
                         (
                           <span
-                            className={`px-2 py-1 rounded-full text-sm ${item.status === "paid"
+                            className={`px-2 py-1 rounded-full text-xs sm:text-sm ${item.status === "paid"
                               ? "bg-green-100 text-green-700"
                               : item.status === "Pending"
                                 ? "bg-gray-100 text-gray-700"
-                                : "bg-yellow-100 text-yellow-700"
+                                : "bg-yellow-100 text-yellow-700 "
                               }`}
                           >
                             {item?.status}

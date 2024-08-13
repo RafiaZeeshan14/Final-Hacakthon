@@ -96,7 +96,7 @@ const OngoingCourses = () => {
     <AdminInfolayout>
       <div className="flex items-center mb-2 border-b-2 py-5">
         <IoBook className="mr-2 text-gray-600 size-7" />
-        <h1 className="text-3xl font-bold pl-3 gradient-text">
+        <h1 className="text-2xl sm:text-3xl font-bold sm:pl-3 pl-0.5 gradient-text">
           Ongoing Courses
         </h1>
       </div>

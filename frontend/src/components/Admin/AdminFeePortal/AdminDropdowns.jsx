@@ -5,9 +5,9 @@ const AdminDropdowns = ({ filterByCourse , displayMonth, filterByMonth }) => {
 
   return (
     <>
-      <div className='flex justify-between w-full'>
+      <div className='flex justify-between w-full flex-col sm:flex-row gap-3 sm:gap-0'>
         {/* Courses Dropdown */}
-        <div className="w-[28%] pr-2">
+        <div className="w-[100%] sm:w-[28%] sm:pr-2">
           <DropdownInput
             label="Select Course"
             id="course"
@@ -24,7 +24,7 @@ const AdminDropdowns = ({ filterByCourse , displayMonth, filterByMonth }) => {
         </div>
         {/* Month Dropdown */}
         {displayMonth && (
-          <div className="w-[28%] pl-2">
+          <div className="w-[100%] sm:w-[28%] sm:pl-2  ">
             <DropdownInput
               label="Select Month"
               id="month"

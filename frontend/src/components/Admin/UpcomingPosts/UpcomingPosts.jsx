@@ -62,8 +62,8 @@ const UpcomingPosts = () => {
         <AdminInfolayout>
             <div className="p-4 bg-transparent">
                 <div className="flex items-center mb-2 border-b-2 py-5">
-                    <MdOutlinePostAdd className="text-gray-600 size-10" />
-                    <h1 className="text-3xl font-bold pl-3 gradient-text">
+                    <MdOutlinePostAdd className="text-gray-600 sm:size-10 size-9" />
+                    <h1 className="text-2xl sm:text-3xl font-bold sm:pl-3  pl-1 gradient-text">
                         Upcoming Post
                     </h1>
                 </div>

@@ -14,6 +14,7 @@ const AllBatches = () => {
         <AdminInfolayout>
             <div className="py-4 bg-transparent h-[550px]">
                 <h1 className="text-3xl font-bold mb-4 gradient-text">All Batches</h1>
+                <hr className="my-4" />
                 <button className='ml-2 mt-3 mb-5 text-gray-800 rounded-lg text-sm px-6 py-3 bg-green-100'>Add New Batch</button>
                 <div className="relative pl-4 h-[400px] overflow-y-scroll">
                     <div className='border-l border-gray-200'>
