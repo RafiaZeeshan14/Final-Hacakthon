@@ -50,7 +50,7 @@ const CARDS = [
 const ProgressCards = () => {
   return (
     <div className='max-w-lg pl-2 mt-4'>
-      <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-4  lg:grid-cols-4 gap-12">
         {CARDS.map((card, index) => {
           const data = {
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],

@@ -62,9 +62,9 @@ const SessionCards = () => {
             <div className="px-6 pt-3">
                 <h2 className="text-lg font-semibold mb-2">Sessions By Channel</h2>
                 <div className="flex items-center justify-between pb-1 mb-2 border-b-2 border-white">
-                    <span className="font-semibold text-gray-700">Channel</span>
-                    <span className="font-semibold text-gray-700">Traffic</span>
-                    <span className="font-semibold text-gray-700">Percentage (%)</span>
+                    <span className="font-semibold text-gray-700 text-sm sm:text-base">Channel</span>
+                    <span className="font-semibold text-gray-700 text-sm sm:text-base">Traffic</span>
+                    <span className="font-semibold text-gray-700 text-sm sm:text-base">Percentage (%)</span>
                 </div>
                 <div className="h-40">
                     <Bar data={data} options={options} />

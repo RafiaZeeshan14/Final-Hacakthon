@@ -19,7 +19,7 @@ const AdminLayout = ({ children }) => {
       >
         <Navbar toggleSidebar={toggleSidebar} />
         <main className="p-4 w-full overflow-y-auto ">
-          <div className="grid grid-cols-[auto_1fr] ">
+          <div className="grid md:grid-cols-[auto_1fr] ">
             {children[0]}
             <div className="flex flex-col ">
               {children[1]}

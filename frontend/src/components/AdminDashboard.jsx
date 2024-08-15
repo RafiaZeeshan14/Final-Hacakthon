@@ -8,6 +8,7 @@ import StudentData from './Admin/StudentData/StudentData'
 const AdminDashboard = () => {
   return (
     <AdminLayout>
+      
         <PerformanceCard />
         <ReportCard />
         <SessionCards />
