@@ -42,12 +42,12 @@ const NotificationPage = () => {
 
   return (
     <AdminInfolayout>
-      <div className="flex items-center mb-4 py-5">
+      <div className="flex items-center mb- py-5">
         <FaBell className="mr-3 text-gray-600 size-7" />
         <h1 className="text-3xl font-bold gradient-text">Notifications</h1>
       </div>
-
-      <div className="bg-gray-50 p-6 rounded-lg shadow-md max-w-8xl h-[450px] overflow-y-scroll">
+<hr/>
+      <div className="bg-gray-50 mt-6 p-6 rounded-lg shadow-md max-w-8xl h-[450px] overflow-y-scroll">
         {Object.keys(categorizedNotifications).map((category) => (
           <div key={category} className="mb-6">
             <h2 className={`text-xl font-semibold mb-3 ${getCategoryStyle(category)}`}>

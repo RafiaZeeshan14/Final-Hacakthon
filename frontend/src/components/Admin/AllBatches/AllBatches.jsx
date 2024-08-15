@@ -1,4 +1,5 @@
 import React from 'react';
+import {FaCalendarAlt,} from "react-icons/fa";
 import AdminInfolayout from '../../Layouts/AdminInfoLayout';
 const AllBatches = () => {
     const semesters = [
@@ -13,7 +14,10 @@ const AllBatches = () => {
     return (
         <AdminInfolayout>
             <div className="py-4 bg-transparent h-[550px]">
-                <h1 className="text-3xl font-bold mb-4 gradient-text">All Batches</h1>
+                <div className='flex items-center'>
+            <FaCalendarAlt className="mr-2 mt-0 text-gray-600 size-7 " />
+                <h1 className="text-3xl font-bold mb-0 gradient-text">All Batches</h1>
+                </div>
                 <hr className="my-4" />
                 <button className='ml-2 mt-3 mb-5 text-gray-800 rounded-lg text-sm px-6 py-3 bg-green-100'>Add New Batch</button>
                 <div className="relative pl-4 h-[400px] overflow-y-scroll">
@@ -34,7 +38,7 @@ const SemesterTimelineItem = ({ semester, isLast }) => {
         Pending: 'text-yellow-500',
         Active: 'text-blue-500',
         Completed: 'text-red-500',
-    }[semester.status] || 'text-gray-600'; // Default color if status doesn't match
+    }[semester.status] || 'text-gray-600';
 
     return (
         <div className={`ml-8 mb-8 ${isLast ? '' : 'pb-8'}`}>

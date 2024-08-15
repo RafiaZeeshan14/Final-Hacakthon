@@ -76,7 +76,7 @@ const UpcomingPosts = () => {
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{post.title}</h3>
                                 <p className="text-gray-600 mb-2"><strong>Date:</strong> {new Date(post.date).toLocaleDateString()}</p>
                                 <p className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: post.description }}></p>
-                                <button className="bg-gradient-to-l from-green-500 to-blue-500 text-white px-4 py-2 rounded hover:bg-gradient-to-r from-blue-500 to-green-500">
+                                <button className="bg-gradient-to-l text-white px-4 py-2 rounded hover:bg-gradient-to-r from-blue-500 to-green-500">
                                     Post on Facebook
                                 </button>
                             </div>
@@ -92,7 +92,7 @@ const UpcomingPosts = () => {
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{post.title}</h3>
                                 <p className="text-gray-600 mb-2"><strong>Date:</strong> {new Date(post.date).toLocaleDateString()}</p>
                                 <p className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: post.description }}></p>
-                                <button className="bg-gradient-to-l from-green-500 to-blue-500 text-white px-4 py-2 rounded hover:bg-gradient-to-r from-blue-500 to-green-500">
+                                <button className="bg-gradient-to-l  text-white px-4 py-2 rounded hover:bg-gradient-to-r from-green-500 to-blue-500">
                                     Publish Blog
                                 </button>
                             </div>
