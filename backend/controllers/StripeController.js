@@ -1,6 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
-const baseURL = "http://localhost:3001/"
-// const baseURL = "https://finalhacakthon.vercel.app/"
+// const baseURL = "http://localhost:3000/"
+const baseURL = "https://finalhacakthon.vercel.app/"
 
 const stripePayment = async (req, res) => {
     const { voucher } = req.body;

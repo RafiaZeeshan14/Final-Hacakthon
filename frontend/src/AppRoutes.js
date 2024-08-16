@@ -24,6 +24,7 @@ import EditUserProfile from './components/User/EditUserProfile/EditUserProfile'
 import EnrollCard from './components/User/EnrollCard/EnrollCard'
 import UpcomingPosts from './components/Admin/UpcomingPosts/UpcomingPosts'
 import ProtectedRoute from './ProtectedRoute'
+import Spinner from './components/Common/Spinner/Spinner'
 
 
 const AppRoutes = () => {
@@ -40,7 +41,18 @@ const AppRoutes = () => {
     }
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+  <div className="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>;
   
   return (
     <div>
