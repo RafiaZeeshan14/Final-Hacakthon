@@ -28,12 +28,20 @@ import ProtectedRoute from './ProtectedRoute'
 
 const AppRoutes = () => {
   const [user, setUser] = useState()
+  
+   const [loading, setLoading] = useState(true); // Added loading state
+
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     if (token) {
-      fetchUser(setUser)
+      fetchUser(setUser).finally(() => setLoading(false)); // Set loading to false after fetching user
+    } else {
+      setLoading(false); // No token, stop loading
     }
-  }, [])
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  
   return (
     <div>
       <UserContext.Provider value={{ user, setUser }}>

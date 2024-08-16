@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-// const baseURL = "http://localhost:5000/"
-const baseURL = 'https://feeportal.vercel.app/'
+const baseURL = "http://localhost:5000/"
+// const baseURL = 'https://feeportal.vercel.app/'
 
 const getAllUsers = async (setAllUsers) => {
   // console.log(" i am in get user function in admin api")
