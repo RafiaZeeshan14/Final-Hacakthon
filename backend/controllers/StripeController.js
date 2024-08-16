@@ -1,4 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+const baseURL = "http://localhost:3001/"
+// const baseURL = "https://finalhacakthon.vercel.app/"
 
 const stripePayment = async (req, res) => {
     const { voucher } = req.body;
@@ -44,8 +46,8 @@ const stripePayment = async (req, res) => {
         payment_method_types: ['card'],
         line_items,
         mode: "payment",
-        success_url: `https://finalhacakthon.vercel.app/success?voucherId=${voucher._id}&fee=${voucher.feeAmount}`,
-        cancel_url: "https://finalhacakthon.vercel.app/feeportal",
+        success_url: `${baseURL}success?voucherId=${voucher._id}&fee=${voucher.feeAmount}`,
+        cancel_url: `${baseURL}feeportal`,
 
     });
 
