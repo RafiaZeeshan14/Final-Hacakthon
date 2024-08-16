@@ -23,6 +23,7 @@ import Notification from './components/User/Notification/Notification'
 import EditUserProfile from './components/User/EditUserProfile/EditUserProfile'
 import EnrollCard from './components/User/EnrollCard/EnrollCard'
 import UpcomingPosts from './components/Admin/UpcomingPosts/UpcomingPosts'
+import ProtectedRoute from './ProtectedRoute'
 
 
 const AppRoutes = () => {
@@ -41,26 +42,26 @@ const AppRoutes = () => {
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           {/**User Routes */}
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/fee-payment' element={<FeePortal />} />
-          <Route path='/success' element={<Success />} />
-          <Route path='/registration' element={<RegisterForm />} />
-          <Route path='/instructor' element={<Instructor />} />
-          <Route path='/courses' element={<Courses />} />
-          <Route path='/quizes-score' element={<QuizesScore />} />
-          <Route path='/edituserprofile' element={<EditUserProfile/>} />
-          <Route path='/enrollcard' element={<EnrollCard/>}/>
+          <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path='/fee-payment' element={<ProtectedRoute><FeePortal /></ProtectedRoute>}/>
+          <Route path='/success' element={<ProtectedRoute><Success /></ProtectedRoute>} />
+          <Route path='/registration' element={<ProtectedRoute><RegisterForm /></ProtectedRoute>} />
+          <Route path='/instructor' element={<ProtectedRoute><Instructor /></ProtectedRoute>} />
+          <Route path='/courses' element={<ProtectedRoute><Courses /></ProtectedRoute>} />
+          <Route path='/quizes-score' element={<ProtectedRoute><QuizesScore /></ProtectedRoute>} />
+          <Route path='/edituserprofile' element={<ProtectedRoute><EditUserProfile/></ProtectedRoute>} />
+          <Route path='/enrollcard' element={<ProtectedRoute><EnrollCard/></ProtectedRoute>}/>
           {/**Admin Routes */}
-          <Route path='/admin-dashboard' element={<AdminDashboard />} />
-          <Route path='/adminfeesection' element={<AdminFeeTable />} />
-          <Route path='/editprofile' element={<EditProfile />} />
-          <Route path='/noticepage' element={<NotificationPage />} />
-          <Route path='/studentdetails' element={<StudentDetails />} />
-          <Route path='/alldetails' element={<AllDetails />} />
-          <Route path='/ongoing-courses' element={<OngoingCourses />} />
-          <Route path='/all-batches' element={<AllBatches/>} />
-          <Route path='/notifications' element={<Notification/>} />
-          <Route path='/posts' element={<UpcomingPosts/>} />
+          <Route path='/admin-dashboard' element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+          <Route path='/adminfeesection' element={<ProtectedRoute><AdminFeeTable /></ProtectedRoute>} />
+          <Route path='/editprofile' element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path='/noticepage' element={<ProtectedRoute><NotificationPage /></ProtectedRoute>} />
+          <Route path='/studentdetails' element={<ProtectedRoute><StudentDetails /></ProtectedRoute>} />
+          <Route path='/alldetails' element={<ProtectedRoute><AllDetails /></ProtectedRoute>} />
+          <Route path='/ongoing-courses' element={<ProtectedRoute><OngoingCourses /></ProtectedRoute>} />
+          <Route path='/all-batches' element={<ProtectedRoute><AllBatches/></ProtectedRoute>} />
+          <Route path='/notifications' element={<ProtectedRoute><Notification/></ProtectedRoute>} />
+          <Route path='/posts' element={<ProtectedRoute><UpcomingPosts/></ProtectedRoute>} />
         </Routes>
       </UserContext.Provider>
     </div>
