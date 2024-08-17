@@ -14,7 +14,7 @@ const EnrollCard = () => {
           <hr className="my-4" />
           <div className="flex flex-row gap-8">
             <div
-              className=" shadow-md rounded-xl border-2  border-[#88C343] flex py-8 pl-6 w-[21rem]"
+              className=" shadow-md rounded-xl border-2  border-[#88C343] flex py-8 pl-6 w-[22rem]"
               style={{ backgroundColor: "rgba(40, 81, 146, 0.3)" }}
             >
               <div>
@@ -44,7 +44,7 @@ const EnrollCard = () => {
               />
             </div>
             <div
-              className="bg-white shadow-md rounded-xl flex justify-between py-8 px-6 w-[21rem]"
+              className="bg-white shadow-md rounded-xl flex justify-between py-8 px-6 w-[22rem]"
               style={{ backgroundColor: "rgba(40, 81, 146, 0.3)" }}
             >
               <div className="flex flex-col justify-between">
