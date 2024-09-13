@@ -14,9 +14,10 @@ const generateVoucher = async (req, res) => {
     const dueDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 12);
 
     const existingVoucher = await Voucher.findOne({ month, user: req.user.id })
+    // console.log("🚀 ~ generateVoucher ~ existingVoucher:", existingVoucher)
     try {
         if (existingVoucher) {
-            throw new Error("Vocuher already generated")
+             return res.status(400).json({ message: "Voucher already generated" });
         } else {
             const newVoucher = new Voucher({
                 user: req.user.id,
@@ -36,12 +37,8 @@ const generateVoucher = async (req, res) => {
         }
 
     } catch (error) {
-        if (error.message === "Voucher already generated") {
-            res.status(400).json({ message: error.message });
-        } else {
-            res.status(500).json({ message: 'Error generating voucher' });
-        }
-
+        // console.error("Error generating voucher:", error);
+        res.status(500).json({ message: 'An error occurred while generating the voucher' });
     }
 };
 
